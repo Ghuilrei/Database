@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SQL_exp.iml" filepath="$PROJECT_DIR$/SQL_exp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ServerDEMO.iml" filepath="$PROJECT_DIR$/ServerDEMO.iml" />
     </modules>
   </component>
 </project>
