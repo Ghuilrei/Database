@@ -1,4 +1,4 @@
-package com.example.androidhttpdemo;
+package com.example.androiddemo;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.androidhttpdemo", appContext.getPackageName());
+        assertEquals("com.example.androiddemo", appContext.getPackageName());
     }
 }

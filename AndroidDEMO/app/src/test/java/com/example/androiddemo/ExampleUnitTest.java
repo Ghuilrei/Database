@@ -1,4 +1,4 @@
-package com.example.androidhttpdemo;
+package com.example.androiddemo;
 
 import org.junit.Test;
 

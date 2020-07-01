@@ -1,2 +1,0 @@
-# Database
-Database final project

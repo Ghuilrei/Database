@@ -34,7 +34,13 @@
 		<servlet-class>com.servlet.RegLet</servlet-class>
 	</servlet>
 
-			<session-config>
-				<session-timeout>30</session-timeout>
-			</session-config>
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+
+	<listener>
+		<listener-class>com.chinapost.manager.utils.SessionListener</listener-class>
+	</listener>
+
+
 </web-app>
