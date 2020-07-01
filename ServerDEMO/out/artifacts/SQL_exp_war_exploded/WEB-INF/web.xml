@@ -38,9 +38,4 @@
 		<session-timeout>30</session-timeout>
 	</session-config>
 
-	<listener>
-		<listener-class>com.chinapost.manager.utils.SessionListener</listener-class>
-	</listener>
-
-
 </web-app>
