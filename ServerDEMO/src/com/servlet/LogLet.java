@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.service.Service;
- 
+import com.session.MySessionContext;
+
 public class LogLet extends HttpServlet{
  
 	private static final long serialVersionUID = 9036889586892331384L;
+	public MySessionContext myc= MySessionContext.getInstance();
  
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -53,13 +55,16 @@ public class LogLet extends HttpServlet{
 			session.setAttribute("StuID", userid);
 			//获取session的Id
 			String sessionId = session.getId();
+
+			myc.addSession(session);
+
 			//判断session是不是新创建的
 			if (session.isNew()) {
-				out.print(sessionId);
-				System.out.print("session创建成功，session的id是："+sessionId);
+				out.print(session);
+				System.out.println("session创建成功，session的id是："+sessionId);
 			}else {
-				out.print(sessionId);
-				System.out.print("服务器已经存在该session了，session的id是："+sessionId);
+				out.print(session);
+				System.out.println("服务器已经存在该session了，session的id是："+sessionId);
 			}
 		}else{
 			out.print("false");

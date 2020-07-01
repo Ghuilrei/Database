@@ -91,7 +91,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 }
                 dialog.dismiss();
                 Intent intent = new Intent(Login.this,Content.class);
-//                test.writeTxtToFile(response, "/sdcard/JavaWeb/", "SessionID");
+                System.out.println(response);
+                try {
+                    test.writeTxtToFile(response, "/sdcard/JavaWeb/", "SessionID.txt");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 startActivity(intent);
             }
         });

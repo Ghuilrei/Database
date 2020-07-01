@@ -3,11 +3,17 @@ package com.example.androiddemo.consql;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.androiddemo.R;
 import com.example.androiddemo.web.WebServiceCon;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 
 public class Content extends AppCompatActivity implements View.OnClickListener{
 
@@ -22,6 +28,8 @@ public class Content extends AppCompatActivity implements View.OnClickListener{
         //初始化信息
         info = (TextView)findViewById(R.id.textView13);
 
+        SessionID = readInfo();
+
         new Thread(new Content.MyThread()).start();
     }
 
@@ -31,10 +39,26 @@ public class Content extends AppCompatActivity implements View.OnClickListener{
         new Thread(new Content.MyThread()).start();
     }
 
+    public String readInfo(){
+        File file = new File("/sdcard/JavaWeb/SessionID.txt");
+        FileInputStream fis;
+        try {
+            fis = new FileInputStream(file);
+            BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+            String result = br.readLine();
+//            Toast.makeText(Content.this, result, Toast.LENGTH_LONG).show();
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(Content.this, "读取文件失败", Toast.LENGTH_LONG).show();
+            return "NULL";
+        }
+    }
+
     public class MyThread implements Runnable{
         @Override
         public void run() {
-            String infoString = WebServiceCon.executeHttpGet("ConLet");//获取服务器返回的数据
+            String infoString = WebServiceCon.executeHttpGet(SessionID, "ConLet");//获取服务器返回的数据
 
             //更新UI，使用runOnUiThread()方法
             showResponse(infoString);

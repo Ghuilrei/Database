@@ -9,14 +9,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class WebServiceCon {
-    public static String executeHttpGet(String address){
+    public static String executeHttpGet(String SessionID, String address){
         HttpURLConnection connection = null;
         InputStream in = null;
 
         try{
             String Url = "http://192.168.0.116:8080/ServerDEMO/" + address;
-            String path = Url;
-            System.out.println("111111111111");
+            String path = Url + "?sessionid=" + SessionID;
             try {
                 URL url = new URL(path);
                 connection = (HttpURLConnection)url.openConnection();
