@@ -14,7 +14,7 @@ public class WebServiceCon {
         InputStream in = null;
 
         try{
-            String Url = "http://192.168.0.116:8080/SQL_exp_war_exploded/" + address;
+            String Url = "http://192.168.0.116:8080/ServerDEMO/" + address;
             String path = Url;
             System.out.println("111111111111");
             try {

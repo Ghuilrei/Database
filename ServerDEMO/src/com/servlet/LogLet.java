@@ -55,10 +55,10 @@ public class LogLet extends HttpServlet{
 			String sessionId = session.getId();
 			//判断session是不是新创建的
 			if (session.isNew()) {
-				out.println(sessionId);
+				out.print(sessionId);
 				System.out.print("session创建成功，session的id是："+sessionId);
 			}else {
-				out.println(sessionId);
+				out.print(sessionId);
 				System.out.print("服务器已经存在该session了，session的id是："+sessionId);
 			}
 		}else{

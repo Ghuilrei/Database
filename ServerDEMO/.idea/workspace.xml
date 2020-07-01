@@ -1,28 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ServerDEMO:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd125d99-9ebf-410f-b027-d620eb6fe405" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/SQL_exp_war_exploded.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SQL_exp.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SQL_exp_war_exploded/WEB-INF/classes/com/db/DBManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SQL_exp_war_exploded/WEB-INF/classes/com/service/Service.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SQL_exp_war_exploded/WEB-INF/classes/com/servlet/ConLet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SQL_exp_war_exploded/WEB-INF/classes/com/servlet/LogLet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SQL_exp_war_exploded/WEB-INF/classes/com/servlet/RegLet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SQL_exp_war_exploded/WEB-INF/classes/com/session/MySessionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SQL_exp_war_exploded/WEB-INF/classes/com/session/SessionListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SQL_exp_war_exploded/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/SQL_exp_war_exploded/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SQL_exp/com/db/DBManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SQL_exp/com/service/Service.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SQL_exp/com/servlet/ConLet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SQL_exp/com/servlet/LogLet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SQL_exp/com/servlet/RegLet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SQL_exp/com/session/MySessionContext.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SQL_exp/com/session/SessionListener.class" beforeDir="false" />
+    <list default="true" id="ab36af53-a022-43d7-9308-8199896e1c47" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ServerDEMO/com/db/DBManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ServerDEMO/com/service/Service.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ServerDEMO/com/servlet/ConLet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ServerDEMO/com/servlet/LogLet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ServerDEMO/com/servlet/RegLet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ServerDEMO/com/session/MySessionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ServerDEMO/com/session/SessionListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/servlet/LogLet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/servlet/LogLet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +34,7 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectId" id="1e5TT4DYcJHbW92Sv56Z8JSogJf" />
+  <component name="ProjectId" id="1e5Y8usvK7T9ywLWPvVca8xXGKg" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -51,21 +45,72 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.47964796" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/WEB-INF" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.31" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.31" ALTERNATIVE_JRE_ENABLED="false">
-      <deployment />
+      <deployment>
+        <artifact name="ServerDEMO:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/ServerDEMO" />
+          </settings>
+        </artifact>
+      </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Tomcat_9_0_31_ServerDEMO" />
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_9_0_31_ServerDEMO_2" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
       <predefined_log_file id="Tomcat Manager" />
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="56126" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
@@ -83,6 +128,9 @@
       </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="ServerDEMO:war exploded" />
+        </option>
       </method>
     </configuration>
   </component>
@@ -91,12 +139,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fd125d99-9ebf-410f-b027-d620eb6fe405" name="Default Changelist" comment="" />
-      <created>1593610458500</created>
+      <changelist id="ab36af53-a022-43d7-9308-8199896e1c47" name="Default Changelist" comment="" />
+      <created>1593612765163</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1593610458500</updated>
-      <workItem from="1593610462010" duration="277000" />
+      <updated>1593612765163</updated>
+      <workItem from="1593612769405" duration="2992000" />
     </task>
     <servers />
   </component>
@@ -104,9 +152,73 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="328" y="106" key="#Project_Structure" timestamp="1593610470509">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="374" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593613477585">
+      <screen x="50" y="23" width="1630" height="1027" />
     </state>
-    <state x="328" y="106" key="#Project_Structure/0.0.1680.1050@0.0.1680.1050" timestamp="1593610470509" />
+    <state x="374" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog/50.23.1630.1027@50.23.1630.1027" timestamp="1593613477585" />
+    <state width="1086" height="280" key="GridCell.Tab.0.bottom" timestamp="1593615615272">
+      <screen x="56" y="23" width="1624" height="1027" />
+    </state>
+    <state width="1126" height="280" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1593613589703" />
+    <state width="1086" height="280" key="GridCell.Tab.0.bottom/56.23.1624.1027@56.23.1624.1027" timestamp="1593615615272" />
+    <state width="1086" height="280" key="GridCell.Tab.0.center" timestamp="1593615615271">
+      <screen x="56" y="23" width="1624" height="1027" />
+    </state>
+    <state width="1126" height="280" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1593613589701" />
+    <state width="1086" height="280" key="GridCell.Tab.0.center/56.23.1624.1027@56.23.1624.1027" timestamp="1593615615271" />
+    <state width="1086" height="280" key="GridCell.Tab.0.left" timestamp="1593615615270">
+      <screen x="56" y="23" width="1624" height="1027" />
+    </state>
+    <state width="1126" height="280" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1593613589683" />
+    <state width="1086" height="280" key="GridCell.Tab.0.left/56.23.1624.1027@56.23.1624.1027" timestamp="1593615615270" />
+    <state width="1086" height="280" key="GridCell.Tab.0.right" timestamp="1593615615271">
+      <screen x="56" y="23" width="1624" height="1027" />
+    </state>
+    <state width="1126" height="280" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1593613589702" />
+    <state width="1086" height="280" key="GridCell.Tab.0.right/56.23.1624.1027@56.23.1624.1027" timestamp="1593615615271" />
+    <state width="1086" height="280" key="GridCell.Tab.1.bottom" timestamp="1593615614966">
+      <screen x="56" y="23" width="1624" height="1027" />
+    </state>
+    <state width="1126" height="280" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1593613589358" />
+    <state width="1086" height="280" key="GridCell.Tab.1.bottom/56.23.1624.1027@56.23.1624.1027" timestamp="1593615614966" />
+    <state width="1086" height="280" key="GridCell.Tab.1.center" timestamp="1593615614965">
+      <screen x="56" y="23" width="1624" height="1027" />
+    </state>
+    <state width="1126" height="280" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1593613589357" />
+    <state width="1086" height="280" key="GridCell.Tab.1.center/56.23.1624.1027@56.23.1624.1027" timestamp="1593615614965" />
+    <state width="1086" height="280" key="GridCell.Tab.1.left" timestamp="1593615614965">
+      <screen x="56" y="23" width="1624" height="1027" />
+    </state>
+    <state width="1126" height="280" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1593613589356" />
+    <state width="1086" height="280" key="GridCell.Tab.1.left/56.23.1624.1027@56.23.1624.1027" timestamp="1593615614965" />
+    <state width="1086" height="280" key="GridCell.Tab.1.right" timestamp="1593615614966">
+      <screen x="56" y="23" width="1624" height="1027" />
+    </state>
+    <state width="1126" height="280" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1593613589358" />
+    <state width="1086" height="280" key="GridCell.Tab.1.right/56.23.1624.1027@56.23.1624.1027" timestamp="1593615614966" />
+    <state width="1086" height="280" key="GridCell.Tab.2.bottom" timestamp="1593615614969">
+      <screen x="56" y="23" width="1624" height="1027" />
+    </state>
+    <state width="1126" height="280" key="GridCell.Tab.2.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1593613589360" />
+    <state width="1086" height="280" key="GridCell.Tab.2.bottom/56.23.1624.1027@56.23.1624.1027" timestamp="1593615614969" />
+    <state width="1086" height="280" key="GridCell.Tab.2.center" timestamp="1593615614967">
+      <screen x="56" y="23" width="1624" height="1027" />
+    </state>
+    <state width="1126" height="280" key="GridCell.Tab.2.center/0.0.1680.1050@0.0.1680.1050" timestamp="1593613589359" />
+    <state width="1086" height="280" key="GridCell.Tab.2.center/56.23.1624.1027@56.23.1624.1027" timestamp="1593615614967" />
+    <state width="1086" height="280" key="GridCell.Tab.2.left" timestamp="1593615614967">
+      <screen x="56" y="23" width="1624" height="1027" />
+    </state>
+    <state width="1126" height="280" key="GridCell.Tab.2.left/0.0.1680.1050@0.0.1680.1050" timestamp="1593613589359" />
+    <state width="1086" height="280" key="GridCell.Tab.2.left/56.23.1624.1027@56.23.1624.1027" timestamp="1593615614967" />
+    <state width="1086" height="280" key="GridCell.Tab.2.right" timestamp="1593615614968">
+      <screen x="56" y="23" width="1624" height="1027" />
+    </state>
+    <state width="1126" height="280" key="GridCell.Tab.2.right/0.0.1680.1050@0.0.1680.1050" timestamp="1593613589359" />
+    <state width="1086" height="280" key="GridCell.Tab.2.right/56.23.1624.1027@56.23.1624.1027" timestamp="1593615614968" />
+    <state x="524" y="155" key="SettingsEditor" timestamp="1593613369434">
+      <screen x="50" y="23" width="1630" height="1027" />
+    </state>
+    <state x="524" y="155" key="SettingsEditor/50.23.1630.1027@50.23.1630.1027" timestamp="1593613369434" />
   </component>
 </project>

@@ -23,7 +23,7 @@ public class WebServicePost {
         InputStream in = null;
 
         try{
-            String Url = "http://192.168.0.116:8080/SQL_exp_war_exploded/" + address;
+            String Url = "http://192.168.0.116:8080/ServerDEMO/" + address;
             try {
                 URL url = new URL(Url);
                 connection = (HttpURLConnection)url.openConnection();

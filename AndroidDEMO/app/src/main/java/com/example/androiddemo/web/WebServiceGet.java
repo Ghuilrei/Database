@@ -23,7 +23,7 @@ public class WebServiceGet {
         InputStream in = null;
 
         try{
-            String Url = "http://192.168.0.116:8080/SQL_exp_war_exploded/" + address;
+            String Url = "http://192.168.0.116:8080/ServerDEMO/" + address;
             String path = Url + "?userid=" + userid + "&password=" + password + "&manager=" + ismanager;
             try {
                 URL url = new URL(path);
