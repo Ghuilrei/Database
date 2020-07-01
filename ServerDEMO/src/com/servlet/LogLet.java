@@ -2,7 +2,9 @@ package com.servlet;
  
 import java.io.IOException;
 import java.io.PrintWriter;
- 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.service.Service;
 import com.session.MySessionContext;
+import com.tools.MD5;
 
 public class LogLet extends HttpServlet{
  
@@ -40,31 +43,20 @@ public class LogLet extends HttpServlet{
 		}else{
 			System.out.println("log fail");
 		}
-		
+
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+		String date = df.format(new Date());// new Date()为获取当前系统时间，也可使用当前时间戳
+		String guess = MD5.getMD5String(date+userid);
+		boolean rcd = service.session(guess, userid, date);
+
 		//返回信息到客户端
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 
 		PrintWriter out = response.getWriter();
 		if( log ){
-			response.setCharacterEncoding("UTF=8");
-			response.setContentType("text/html;charset=UTF-8");
-			//使用request对象的getSession()获取session，如果session不存在则创建一个
-			HttpSession session = request.getSession();
-			//将数据存储到session中
-			session.setAttribute("StuID", userid);
-			//获取session的Id
-			String sessionId = session.getId();
-
-			myc.addSession(session);
-
-			//判断session是不是新创建的
-			if (session.isNew()) {
-				out.print(session);
-				System.out.println("session创建成功，session的id是："+sessionId);
-			}else {
-				out.print(session);
-				System.out.println("服务器已经存在该session了，session的id是："+sessionId);
+			if ( rcd ) {
+				out.print(guess);
 			}
 		}else{
 			out.print("false");
@@ -75,7 +67,7 @@ public class LogLet extends HttpServlet{
  
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO 自动生成的方法存根
+		doGet(req, resp);
  
 	}
  

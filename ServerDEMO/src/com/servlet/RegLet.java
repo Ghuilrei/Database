@@ -16,13 +16,12 @@ public class RegLet extends HttpServlet{
  
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO 自动生成的方法存根
+		doPost(request, response);
 		
 	}
  
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO 自动生成的方法存根
 			//接受客户端信息
 			System.out.print(request);
 			String userid = request.getParameter("userid");

@@ -48,4 +48,48 @@ public class Service {
         
         return false;
     }
+
+    public boolean session(String guess, String userid, String time) {
+        // 获取Sql查询语句
+        String regSql = "insert into LoginRecord values('"+ guess + "','"+ userid + "','"+ time+ "') ";
+
+        // 获取DB对象
+        DBManager sql = DBManager.createInstance();
+        sql.connectDB();
+
+        int ret = sql.executeUpdate(regSql);
+        if (ret != 0) {
+            sql.closeDB();
+            return true;
+        }
+        sql.closeDB();
+
+        return false;
+    }
+
+    public Boolean loginwithoutpd(String guess, String userid) {
+
+        // 获取Sql查询语句
+        String chkSql = "select * from LoginRecord where guess ='" + guess + "' and StuID ='" + userid + "'";
+
+        // 获取DB对象
+        DBManager sql = DBManager.createInstance();
+        sql.connectDB();
+
+        // 操作DB对象
+        try {
+            ResultSet rs = sql.executeQuery(chkSql);
+            if (rs.next()) {
+                //TODO 判断天数
+                sql.closeDB();
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        sql.closeDB();
+        return false;
+    }
+
+    //TODO updatasession
 }
