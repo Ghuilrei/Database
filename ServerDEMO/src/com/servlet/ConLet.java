@@ -39,26 +39,31 @@ public class ConLet extends HttpServlet{
         String stuid = service.loginwithoutpd(guess, userid);
         switch (stuid) {
             case "false":
-                System.out.println("logwithoutpd false");
+                // FIXME System.out.println
+                System.out.println("ConLet:42:logwithoutpd false");
                 out.print("false");
                 break;
             case "null":
-                System.out.println("logwithoutpd null");
+                // FIXME System.out.println
+                System.out.println("ConLet:46:logwithoutpd null");
                 out.print("false");
                 break;
             case "err":
-                System.out.println("logwithoutpd err");
+                // FIXME System.out.println
+                System.out.println("ConLet:50:logwithoutpd err");
                 out.print("false");
                 break;
             default:
-                System.out.println("logwithoutpd success");
+                // FIXME System.out.println
+                System.out.println("ConLet:54:logwithoutpd success");
                 //设置日期格式
                 SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 // new Date()为获取当前系统时间，也可使用当前时间戳
                 String date = df.format(new Date());
                 String new_guess = MD5.getMD5String(date + userid);
-                // TODO wating use updatasession
                 boolean rcd = service.session(new_guess, userid, date);
+                // FIXME System.out.println
+                System.out.println("ConLet:62:rcd:"+rcd);
                 out.print("");
                 break;
         }

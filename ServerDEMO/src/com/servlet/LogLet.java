@@ -9,7 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.service.Service;
 import com.tools.MD5;
@@ -46,6 +45,8 @@ public class LogLet extends HttpServlet{
 		String date = df.format(new Date());// new Date()为获取当前系统时间，也可使用当前时间戳
 		String guess = MD5.getMD5String(date+userid);
 		boolean rcd = service.session(guess, userid, date);
+		// FIXME System.out.println
+		System.out.println("LogLet:48:rcd:"+rcd);
 
 		//返回信息到客户端
 		response.setCharacterEncoding("UTF-8");

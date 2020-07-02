@@ -56,13 +56,21 @@ public class Service {
         // 获取Sql查询语句
         String regSql;
 
+        boolean pd = loginwithoutpd(guess, userid).equals("null");
+
+        // FIXME System.out.println
+        System.out.println("Service:61:pd:"+pd);
+
         // 如果返回为空，即没有该该用户的session，则insert session
         // 否则updata
-        if (loginwithoutpd(guess, userid).equals("null")) {
+        if (pd) {
             regSql = "insert into LoginRecord values('"+ guess + "','"+ userid + "','"+ time+ "') ";
         } else {
             regSql = "UPDATA LoginRecord SET Time =" + time +" WHERE StuID = " + userid + " ;";
         }
+
+        // FIXME System.out.println
+        System.out.println("Service:67:regSql:"+regSql);
 
         // 获取DB对象
         DBManager sql = DBManager.createInstance();
@@ -81,7 +89,7 @@ public class Service {
     public String loginwithoutpd(String guess, String userid) {
 
         // 获取Sql查询语句
-        String chkSql = "select * from LoginRecord where guess ='" + guess + "' and StuID ='" + userid + "'";
+        String chkSql = "select * from LoginRecord where StuID ='" + userid + "'";
 
         // 获取DB对象
         DBManager sql = DBManager.createInstance();
@@ -90,6 +98,10 @@ public class Service {
         // 操作DB对象
         try {
             ResultSet rs = sql.executeQuery(chkSql);
+
+            // FIXME System.out.println
+            System.out.println("Service:97:rs.next():"+rs.next());
+
             if (rs.next()) {
                 String stuid = rs.getString("StuID");
                 String time = rs.getString("time");

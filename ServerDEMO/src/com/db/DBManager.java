@@ -39,26 +39,31 @@ public class DBManager {
  
     // 连接数据库，获取句柄+对象
     public void connectDB() {
-        System.out.println("Connecting to database...");
+        // FIXME System.out.println
+        System.out.println("DBManager:55:SqlManager:Connecting to database...");
         try {
             conn = DriverManager.getConnection(URL, USER, PASS);
             stmt = conn.createStatement();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("SqlManager:Connect to database successful.");
+
+        // FIXME System.out.println
+        System.out.println("DBManager:55:SqlManager:Connect to database successful.");
     }
  
     // 关闭数据库 关闭对象，释放句柄
     public void closeDB() {
-        System.out.println("Close connection to database..");
+        // FIXME System.out.println
+        System.out.println("DBManager:55:Close connection to database..");
         try {
             stmt.close();
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("Close connection successful");
+        // FIXME System.out.println
+        System.out.println("DBManager:61:Close connection successful");
     }
  
     // 查询

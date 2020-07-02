@@ -35,8 +35,4 @@
         <servlet-class>com.servlet.RegLet</servlet-class>
     </servlet>
 
-    <listener>
-        <listener-class>com.session.SessionListener</listener-class>
-    </listener>
-
 </web-app>
