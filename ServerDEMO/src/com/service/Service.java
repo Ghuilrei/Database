@@ -2,8 +2,11 @@ package com.service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import com.db.DBManager;
+import com.tools.Timediff;
 
 public class Service {
 
@@ -51,7 +54,15 @@ public class Service {
 
     public boolean session(String guess, String userid, String time) {
         // 获取Sql查询语句
-        String regSql = "insert into LoginRecord values('"+ guess + "','"+ userid + "','"+ time+ "') ";
+        String regSql;
+
+        // 如果返回为空，即没有该该用户的session，则insert session
+        // 否则updata
+        if (loginwithoutpd(guess, userid).equals("null")) {
+            regSql = "insert into LoginRecord values('"+ guess + "','"+ userid + "','"+ time+ "') ";
+        } else {
+            regSql = "UPDATA LoginRecord SET Time =" + time +" WHERE StuID = " + userid + " ;";
+        }
 
         // 获取DB对象
         DBManager sql = DBManager.createInstance();
@@ -67,7 +78,7 @@ public class Service {
         return false;
     }
 
-    public Boolean loginwithoutpd(String guess, String userid) {
+    public String loginwithoutpd(String guess, String userid) {
 
         // 获取Sql查询语句
         String chkSql = "select * from LoginRecord where guess ='" + guess + "' and StuID ='" + userid + "'";
@@ -80,16 +91,28 @@ public class Service {
         try {
             ResultSet rs = sql.executeQuery(chkSql);
             if (rs.next()) {
-                //TODO 判断天数
+                String stuid = rs.getString("StuID");
+                String time = rs.getString("time");
+                // 断开连接
                 sql.closeDB();
-                return true;
+                // 获取当前时间
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+                // 转字符串
+                String now_date = df.format(new Date());// new Date()为获取当前系统时间，也可使用当前时间戳
+                // 计算上次登陆及这次的时间差
+                long between = Timediff.timediff(time, now_date);
+                // 判断天数
+                if (between >= 604800) {
+                    return "false";
+                } else
+                    return stuid;
+            } else {
+                return "null";
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         sql.closeDB();
-        return false;
+        return "err";
     }
-
-    //TODO updatasession
 }

@@ -12,13 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.service.Service;
-import com.session.MySessionContext;
 import com.tools.MD5;
 
 public class LogLet extends HttpServlet{
  
 	private static final long serialVersionUID = 9036889586892331384L;
-	public MySessionContext myc= MySessionContext.getInstance();
  
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

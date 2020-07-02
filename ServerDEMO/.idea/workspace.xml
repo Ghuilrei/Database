@@ -24,18 +24,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab36af53-a022-43d7-9308-8199896e1c47" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/tools/MD5.java" afterDir="false" />
+    <list default="true" id="ab36af53-a022-43d7-9308-8199896e1c47" name="Default Changelist" comment="07/02 09:39 Commit">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/tools/Timediff.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/service/Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/servlet/ConLet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/servlet/ConLet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/servlet/LogLet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/servlet/LogLet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/servlet/RegLet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/servlet/RegLet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/session/MySessionContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/session/SessionListener.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/service/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/service/Service.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/servlet/ConLet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/servlet/LogLet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/session/MySessionContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/servlet/RegLet.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/servlet/RegLet.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +79,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.47964796" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -87,7 +87,20 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.test">
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.test.test" />
+      <module name="ServerDEMO" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 9.0.31" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.31" ALTERNATIVE_JRE_ENABLED="false">
       <deployment>
         <artifact name="ServerDEMO:war exploded">
@@ -159,6 +172,15 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Tomcat Server.Tomcat 9.0.31" />
+      <item itemvalue="Application.test" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -170,7 +192,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1593612765163</updated>
-      <workItem from="1593612769405" duration="8279000" />
+      <workItem from="1593612769405" duration="12819000" />
     </task>
     <servers />
   </component>
@@ -188,30 +210,34 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="07/02 09:39 Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="07/02 09:39 Commit" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="374" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593613477585">
       <screen x="50" y="23" width="1630" height="1027" />
     </state>
     <state x="374" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog/50.23.1630.1027@50.23.1630.1027" timestamp="1593613477585" />
-    <state width="1126" height="280" key="GridCell.Tab.0.bottom" timestamp="1593624283232">
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom" timestamp="1593653716645">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1126" height="280" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1593624283232" />
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1593653716645" />
     <state width="1126" height="280" key="GridCell.Tab.0.bottom/56.23.1624.1027@56.23.1624.1027" timestamp="1593618819911" />
-    <state width="1126" height="280" key="GridCell.Tab.0.center" timestamp="1593624283231">
+    <state width="1638" height="295" key="GridCell.Tab.0.center" timestamp="1593653716643">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1126" height="280" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1593624283231" />
+    <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1593653716643" />
     <state width="1126" height="280" key="GridCell.Tab.0.center/56.23.1624.1027@56.23.1624.1027" timestamp="1593618819909" />
-    <state width="1126" height="280" key="GridCell.Tab.0.left" timestamp="1593624283230">
+    <state width="1638" height="295" key="GridCell.Tab.0.left" timestamp="1593653716642">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1126" height="280" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1593624283230" />
+    <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1593653716642" />
     <state width="1126" height="280" key="GridCell.Tab.0.left/56.23.1624.1027@56.23.1624.1027" timestamp="1593618819907" />
-    <state width="1126" height="280" key="GridCell.Tab.0.right" timestamp="1593624283231">
+    <state width="1638" height="295" key="GridCell.Tab.0.right" timestamp="1593653716644">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1126" height="280" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1593624283231" />
+    <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1593653716644" />
     <state width="1126" height="280" key="GridCell.Tab.0.right/56.23.1624.1027@56.23.1624.1027" timestamp="1593618819910" />
     <state width="1126" height="280" key="GridCell.Tab.1.bottom" timestamp="1593624283234">
       <screen x="0" y="0" width="1680" height="1050" />
@@ -269,9 +295,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="1126" height="280" key="GridCell.Tab.3.right/0.0.1680.1050@0.0.1680.1050" timestamp="1593624283236" />
-    <state x="524" y="155" key="SettingsEditor" timestamp="1593613369434">
-      <screen x="50" y="23" width="1630" height="1027" />
+    <state x="489" y="135" key="SettingsEditor" timestamp="1593653125956">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="489" y="135" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1593653125956" />
     <state x="524" y="155" key="SettingsEditor/50.23.1630.1027@50.23.1630.1027" timestamp="1593613369434" />
   </component>
 </project>

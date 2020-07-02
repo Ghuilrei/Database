@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.service.Service;
-import com.session.MySessionContext;
 import com.tools.MD5;
 
 public class ConLet extends HttpServlet{
@@ -37,17 +36,31 @@ public class ConLet extends HttpServlet{
         PrintWriter out = response.getWriter();
 
         //验证处理
-        boolean logwithoutpd = service.loginwithoutpd(guess, userid);
-        if( logwithoutpd ){
-            System.out.println("logwithoutpd success");
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-            String date = df.format(new Date());// new Date()为获取当前系统时间，也可使用当前时间戳
-            String new_guess = MD5.getMD5String(date+userid);
-            boolean rcd = service.updatasession(new_guess, userid, date);
-            out.print("");
-        }else{
-            System.out.println("logwithoutpd fail");
-            out.print("false");
+        String stuid = service.loginwithoutpd(guess, userid);
+        switch (stuid) {
+            case "false":
+                System.out.println("logwithoutpd false");
+                out.print("false");
+                break;
+            case "null":
+                System.out.println("logwithoutpd null");
+                out.print("false");
+                break;
+            case "err":
+                System.out.println("logwithoutpd err");
+                out.print("false");
+                break;
+            default:
+                System.out.println("logwithoutpd success");
+                //设置日期格式
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                // new Date()为获取当前系统时间，也可使用当前时间戳
+                String date = df.format(new Date());
+                String new_guess = MD5.getMD5String(date + userid);
+                // TODO wating use updatasession
+                boolean rcd = service.session(new_guess, userid, date);
+                out.print("");
+                break;
         }
 
         out.flush();
