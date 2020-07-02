@@ -29,7 +29,7 @@ public class test {
 
         String strFilePath = filePath + fileName;
         // 每次写入时，都换行写
-        String strContent = strcontent + "\r\n";
+        String strContent = strcontent;
         try {
             File file = new File(strFilePath);
             if (!file.exists()) {
@@ -38,7 +38,8 @@ public class test {
                 file.createNewFile();
             }
             RandomAccessFile raf = new RandomAccessFile(file, "rwd");
-            raf.seek(file.length());
+//            raf.seek(file.length());
+            raf.seek(0);
             raf.write(strContent.getBytes());
             raf.close();
         } catch (Exception e) {

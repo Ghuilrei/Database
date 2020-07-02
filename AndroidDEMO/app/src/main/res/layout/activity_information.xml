@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TableLayout
+                android:id="@+id/tableLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteX="0dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tWSno"
+                        android:layout_width="100dp"
+                        android:layout_height="46dp"
+                        android:gravity="center"
+                        android:text="姓名："
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/eTSno"
+                        android:layout_width="225dp"
+                        android:layout_height="60dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="NULL"
+                        android:textSize="14sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tVSname"
+                        android:layout_width="100dp"
+                        android:layout_height="46dp"
+                        android:gravity="center"
+                        android:text="学号："
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/eTSname"
+                        android:layout_width="225dp"
+                        android:layout_height="60dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="NULL"
+                        android:textSize="14sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tVSsex"
+                        android:layout_width="100dp"
+                        android:layout_height="46dp"
+                        android:gravity="center"
+                        android:text="性别："
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/eTSsex"
+                        android:layout_width="225dp"
+                        android:layout_height="60dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="NULL"
+                        android:textSize="14sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tVSdept"
+                        android:layout_width="100dp"
+                        android:layout_height="46dp"
+                        android:gravity="center"
+                        android:text="学院："
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/eTSdept"
+                        android:layout_width="225dp"
+                        android:layout_height="60dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="NULL"
+                        android:textSize="14sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tVSgrade"
+                        android:layout_width="100dp"
+                        android:layout_height="46dp"
+                        android:gravity="center"
+                        android:text="年级："
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/eTSgrade"
+                        android:layout_width="225dp"
+                        android:layout_height="60dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="NULL"
+                        android:textSize="14sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tVSxy"
+                        android:layout_width="100dp"
+                        android:layout_height="46dp"
+                        android:gravity="center"
+                        android:text="专业："
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/eTSxy"
+                        android:layout_width="225dp"
+                        android:layout_height="60dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="NULL"
+                        android:textSize="14sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tVSphone"
+                        android:layout_width="100dp"
+                        android:layout_height="46dp"
+                        android:gravity="center"
+                        android:text="手机号："
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/eTSphone"
+                        android:layout_width="225dp"
+                        android:layout_height="60dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="NULL"
+                        android:textSize="14sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="93dp">
+
+                    <TextView
+                        android:id="@+id/tVSis_ban"
+                        android:layout_width="100dp"
+                        android:layout_height="46dp"
+                        android:gravity="center"
+                        android:text="账号状态："
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/eTSis_ban"
+                        android:layout_width="225dp"
+                        android:layout_height="60dp"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="NULL"
+                        android:textSize="14sp" />
+                </TableRow>
+
+            </TableLayout>
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="112dp"
+                android:layout_marginLeft="112dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="113dp"
+                android:layout_marginRight="113dp"
+                android:text="Button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

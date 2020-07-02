@@ -18,7 +18,7 @@ import java.net.URLEncoder;
 
 public class WebServicePost {
 
-    public static String executeHttpPost(String userid, String username,String password,String address){
+    public static String executeHttpPost(String postdata, String address){
         HttpURLConnection connection = null;
         InputStream in = null;
 
@@ -27,23 +27,17 @@ public class WebServicePost {
             try {
                 URL url = new URL(Url);
                 connection = (HttpURLConnection)url.openConnection();
-
                 connection.setDoInput(true);
                 connection.setDoOutput(true);
                 connection.setRequestMethod("POST");
                 connection.setReadTimeout(8000);//传递数据超时
-
                 connection.setUseCaches(false);
                 connection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
-
                 connection.connect();
-
                 DataOutputStream out = new DataOutputStream(connection.getOutputStream());
-                String data = "userid=" + URLEncoder.encode(userid,"UTF-8") + "&username=" + URLEncoder.encode(username,"UTF-8") + "&password=" + URLEncoder.encode(password,"UTF-8");
-                out.writeBytes(data);
+                out.writeBytes(postdata);
                 out.flush();
                 out.close();
-
                 int resultCode = connection.getResponseCode();
                 if(HttpURLConnection.HTTP_OK == resultCode) {
                     in = connection.getInputStream();
