@@ -11,12 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.androiddemo.R;
 import com.example.androiddemo.tool.Person;
+import com.example.androiddemo.tool.StaticTool;
 import com.example.androiddemo.web.WebServicePost;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.util.HashMap;
 
 public class Information extends AppCompatActivity implements View.OnClickListener{
 
@@ -64,33 +62,20 @@ public class Information extends AppCompatActivity implements View.OnClickListen
         eTSname.setEnabled(false);
         eTSis_ban.setEnabled(false);
 
-        // 新线程 请求信息
-        data = "";
-        new Thread(new Information.MyThread()).start();
+        showInformation();
     }
 
     @Override
     public void onClick(View view) {
 
         // 新线程 保存数据
-        data = "";
+        data = "Session="+person.getSession()+
+                "&Ssex"+eTSsex.getText().toString()+
+                "&Sdept"+eTSdept.getText().toString()+
+                "&SGrade"+eTSgrade.getText().toString()+
+                "&Sphone"+eTSphone.getText().toString()+
+                "&Sxy"+eTSxy.getText().toString();
         new Thread(new Information.MyThread()).start();
-    }
-
-    public String readInfo(){
-        File file = new File(person.getFilePath() + "SessionID.txt");
-        FileInputStream fis;
-        try {
-            fis = new FileInputStream(file);
-            BufferedReader br = new BufferedReader(new InputStreamReader(fis));
-            String result = br.readLine();
-            Toast.makeText(Information.this, result, Toast.LENGTH_LONG).show();
-            return result;
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(Information.this, "读取文件失败", Toast.LENGTH_LONG).show();
-            return "NULL";
-        }
     }
 
     public class MyThread implements Runnable{
@@ -110,14 +95,35 @@ public class Information extends AppCompatActivity implements View.OnClickListen
             @Override
             public void run() {
                 if (response.equals("success")) {
-
+                    // 提交信息保存成功
+                    Toast.makeText(Information.this, "保存成功！", Toast.LENGTH_SHORT).show();
                 } else if (response.equals("failure")) {
-
+                    // 提交信息保存失败
+                    Toast.makeText(Information.this, "保存失败！", Toast.LENGTH_SHORT).show();
                 } else {
-                    eTSname.setText(response);
+                    // 请求个人信息
+                    // TODO response格式要求："{[Session:666666],[Sno:666666],[Sname:admin]}"
+                    HashMap<String, String> data = StaticTool.Regular_Expression(response);
+                    eTSname.setText(data.get("Sno"));
+                    eTSno.setText(data.get("Sname"));
+                    eTSdept.setText(data.get("Sdept"));
+                    eTSgrade.setText(data.get("SGrade"));
+                    eTSphone.setText(data.get("Sphone"));
+                    eTSsex.setText(data.get("Ssex"));
+                    eTSxy.setText(data.get("Sxy"));
+                    if (data.get("Sis_ban").equals("false")) {
+                        eTSis_ban.setText("正常");
+                    } else {
+                        eTSis_ban.setText("正在封禁");
+                    }
                 }
             }
         });
+    }
 
+    private void showInformation() {
+        // 新线程 请求信息
+        data = "Session="+person.getSession();
+        new Thread(new Information.MyThread()).start();
     }
 }

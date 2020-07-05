@@ -42,11 +42,11 @@ public class Person implements Serializable {
     }
 
     public void setALL (String request) {
-        // request格式要求："{[Session:666666],[Sno:666666],[Sname:admin]}"
+        // TODO request格式要求："{[Session:666666],[Sno:666666],[Sname:admin]}"
         HashMap<String, String> data = StaticTool.Regular_Expression(request);
         setSession(data.get("Sesssion"));
         setSno(data.get("Sno"));
-        setSname(data.get("name"));
+        setSname(data.get("Sname"));
 
     }
 

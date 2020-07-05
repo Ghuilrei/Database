@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.androiddemo.R;
 
-public class history extends AppCompatActivity {
+public class History extends AppCompatActivity {
 
     private WebView webView;
 
@@ -20,7 +20,7 @@ public class history extends AppCompatActivity {
         //获取控件
         webView = findViewById(R.id.webView);
         //装载URL
-        webView.loadUrl("https://baidu.com");
+        webView.loadUrl("http://192.168.0.116:8080/ServerDEMO/History");
         //获取焦点
         webView.requestFocus();
 

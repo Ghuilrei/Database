@@ -91,8 +91,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 //跳转注册页面
                 intent = new Intent(Login.this,Register.class);
                 startActivity(intent);
-                // TODO 测试返回两层返回
-                finish();
                 break;
         }
     }
@@ -120,8 +118,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 Toast.makeText(Login.this, "登陆失败！", Toast.LENGTH_SHORT).show();
             } else {
                 Intent intent = new Intent();
+                // TODO response格式要求："{[Session:666666],[Sno:666666],[Sname:admin]}"
                 person.setALL(response);
                 intent.putExtra("person",person);
+                setResult(1);
                 finish();
             }
 

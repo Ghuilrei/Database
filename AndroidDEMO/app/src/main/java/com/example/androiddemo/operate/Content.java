@@ -7,17 +7,25 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.androiddemo.R;
 import com.example.androiddemo.tool.Person;
 import com.example.androiddemo.web.WebServicePost;
+import com.example.androiddemo.work.History;
 import com.example.androiddemo.work.Information;
 
 public class Content extends AppCompatActivity implements View.OnClickListener{
 
     // 个人信息类
     Person person = new Person();
+
+    // 意图
+    Intent intent;
+
+    // POST 发送的数据
+    String data;
 
     private ImageView img;
     private TextView Sno;
@@ -27,7 +35,6 @@ public class Content extends AppCompatActivity implements View.OnClickListener{
     private Button history;
     private Button renew;
     private Button exit;
-    String data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +45,11 @@ public class Content extends AppCompatActivity implements View.OnClickListener{
         if (person.getSession().equals("NULL")) {
             // 登陆信息失效：跳转到登陆界面
             Intent intent = new Intent(Content.this, Login.class);
-            startActivityForResult(intent, 1);
+            startActivityForResult(intent, 0);
         } else {
-//            // 新线程 尝试登陆
-//            data = "";
-//            new Thread(new Content.MyThread()).start();
+            // 新线程 尝试登陆
+            data = "Session";
+            new Thread(new Content.MyThread()).start();
         }
 
 
@@ -69,6 +76,19 @@ public class Content extends AppCompatActivity implements View.OnClickListener{
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 0) {
+            if (resultCode == 1) {
+                // 显示姓名、学号
+                Sname.setText(person.getSname());
+                Sno.setText(person.getSno());
+            }
+        }
+    }
+
+    @Override
     public void onClick(View view) {
 
         switch (view.getId()) {
@@ -76,11 +96,16 @@ public class Content extends AppCompatActivity implements View.OnClickListener{
             case R.id.imageView8:
             case R.id.Sno:
             case R.id.Sname:
-                Intent intent = new Intent(Content.this, Information.class);
+                intent = new Intent(Content.this, Information.class);
                 intent.putExtra("Person", person);
                 startActivity(intent);
                 break;
-
+            // 历史记录
+            case R.id.history:
+                intent = new Intent(Content.this, History.class);
+                intent.putExtra("Person", person);
+                startActivity(intent);
+                break;
         }
     }
 
@@ -105,8 +130,12 @@ public class Content extends AppCompatActivity implements View.OnClickListener{
                     Intent intent = new Intent(Content.this, Login.class);
                     startActivity(intent);
                 } else {
-//                    Sname.setText(response);
-//                    Sno.setText(response);
+                    // TODO response格式要求："{[Session:666666],[Sno:666666],[Sname:admin]}"
+                    // 接受并存入数据
+                    person.setALL(response);
+                    // 显示姓名、学号
+                    Sname.setText(person.getSname());
+                    Sno.setText(person.getSno());
                 }
             }
         });
