@@ -32,11 +32,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
     // 发送到服务器的数据
     private String data;
 
-    // 检查两次密码是否一致
-    protected boolean onCheck() {
-        return regPassWord.getText().toString().equals(regPassWord2.getText().toString());
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +82,11 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
             builder.setPositiveButton("是", null);
             builder.show();
         }
+    }
+
+    // 检查两次密码是否一致
+    protected boolean onCheck() {
+        return regPassWord.getText().toString().equals(regPassWord2.getText().toString());
     }
 
     public class RegThread implements Runnable{

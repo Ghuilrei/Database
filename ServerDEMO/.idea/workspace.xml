@@ -2,50 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c927ac2e-2e84-4d7d-be7c-84314e5e6199" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/work/Information.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/res/layout/activitity_information.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/res/layout/activity_user.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/consql/Content.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/consql/Login.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/consql/Register.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/test/test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/web/WebServiceCon.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/web/WebServiceGet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/web/WebServicePost.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/web/WebServicePost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/res/layout/activity_content.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/res/layout/activity_register.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidDEMO/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DatabaseStructure.xmind" beforeDir="false" afterPath="$PROJECT_DIR$/../DatabaseStructure.xmind" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/operate/Content.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/operate/Content.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/operate/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/operate/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/work/Information.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/work/Information.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/res/layout/activity_information.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/res/layout/activity_information.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ServerDEMO_war_exploded/WEB-INF/classes/com/db/DBManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ServerDEMO_war_exploded/WEB-INF/classes/com/service/Service.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ServerDEMO_war_exploded/WEB-INF/classes/com/servlet/ConLet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ServerDEMO_war_exploded/WEB-INF/classes/com/servlet/LogLet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ServerDEMO_war_exploded/WEB-INF/classes/com/servlet/RegLet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ServerDEMO_war_exploded/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ServerDEMO_war_exploded/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/db/DBManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/service/Service.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/servlet/ConLet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/servlet/LogLet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/servlet/RegLet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/test/test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tools/MD5.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tools/Timediff.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/db/DBManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/service/Service.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/servlet/ConLet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/servlet/LogLet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/servlet/RegLet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/test/test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/tools/MD5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/tools/Timediff.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +67,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1593667236373</updated>
-      <workItem from="1593667239851" duration="699000" />
+      <workItem from="1593667239851" duration="701000" />
+      <workItem from="1593873346374" duration="46000" />
     </task>
     <servers />
   </component>

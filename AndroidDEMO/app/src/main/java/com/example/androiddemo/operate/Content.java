@@ -6,20 +6,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.androiddemo.R;
+import com.example.androiddemo.tool.Person;
 import com.example.androiddemo.web.WebServicePost;
 import com.example.androiddemo.work.Information;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-
 public class Content extends AppCompatActivity implements View.OnClickListener{
+
+    // 个人信息类
+    Person person = new Person();
 
     private ImageView img;
     private TextView Sno;
@@ -29,12 +27,24 @@ public class Content extends AppCompatActivity implements View.OnClickListener{
     private Button history;
     private Button renew;
     private Button exit;
-    String SessionID;
+    String data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
+
+
+        if (person.getSession().equals("NULL")) {
+            // 登陆信息失效：跳转到登陆界面
+            Intent intent = new Intent(Content.this, Login.class);
+            startActivityForResult(intent, 1);
+        } else {
+//            // 新线程 尝试登陆
+//            data = "";
+//            new Thread(new Content.MyThread()).start();
+        }
+
 
         //初始化信息
         img = findViewById(R.id.imageView8);
@@ -56,47 +66,31 @@ public class Content extends AppCompatActivity implements View.OnClickListener{
         renew.setOnClickListener(this);
         exit.setOnClickListener(this);
 
-        // TODO 请求session判断是否登录
-        // 新线程
-//        new Thread(new Content.MyThread()).start();
     }
 
     @Override
     public void onClick(View view) {
 
         switch (view.getId()) {
+            // 点击头像、姓名、学号 跳转信息界面
             case R.id.imageView8:
             case R.id.Sno:
             case R.id.Sname:
                 Intent intent = new Intent(Content.this, Information.class);
-        }
+                intent.putExtra("Person", person);
+                startActivity(intent);
+                break;
 
-        //设置子线程，分别进行Get和Post传输数据
-        new Thread(new Content.MyThread()).start();
-    }
-
-    public String readInfo(){
-        File file = new File(Login.FILE_PATH + "SessionID.txt");
-        FileInputStream fis;
-        try {
-            fis = new FileInputStream(file);
-            BufferedReader br = new BufferedReader(new InputStreamReader(fis));
-            String result = br.readLine();
-            Toast.makeText(Content.this, result, Toast.LENGTH_LONG).show();
-            return result;
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(Content.this, "读取文件失败", Toast.LENGTH_LONG).show();
-            return "NULL";
         }
     }
 
     public class MyThread implements Runnable{
         @Override
         public void run() {
-            String infoString = WebServicePost.executeHttpPost(SessionID, "ConLet");//获取服务器返回的数据
+            //获取服务器返回的数据
+            String infoString = WebServicePost.executeHttpPost(data, "ConLet");
 
-            //更新UI，使用runOnUiThread()方法
+            //数据处理，使用runOnUiThread()方法
             showResponse(infoString);
         }
     }
@@ -107,7 +101,13 @@ public class Content extends AppCompatActivity implements View.OnClickListener{
             //更新UI
             @Override
             public void run() {
-                Sname.setText(response);
+                if (response.equals("false")) {
+                    Intent intent = new Intent(Content.this, Login.class);
+                    startActivity(intent);
+                } else {
+//                    Sname.setText(response);
+//                    Sno.setText(response);
+                }
             }
         });
     }

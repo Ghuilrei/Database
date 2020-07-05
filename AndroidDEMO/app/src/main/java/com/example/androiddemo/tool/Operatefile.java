@@ -1,4 +1,4 @@
-package com.example.androiddemo.test;
+package com.example.androiddemo.tool;
 
 //public class test {
 //
@@ -19,7 +19,7 @@ import java.io.RandomAccessFile;
  * 文件工具类
  * Created by zst on 2018/2/1.
  */
-public class test {
+public class Operatefile {
 
 
     // 将字符串写入到文本文件中

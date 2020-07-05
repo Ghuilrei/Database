@@ -44,6 +44,7 @@
                         android:ems="10"
                         android:inputType="textPersonName"
                         android:text="NULL"
+                        android:editable="false"
                         android:textSize="14sp" />
                 </TableRow>
 
@@ -204,7 +205,7 @@
             </TableLayout>
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/ifom_save"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="112dp"

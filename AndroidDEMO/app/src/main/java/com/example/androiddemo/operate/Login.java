@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -13,23 +12,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.androiddemo.R;
-import com.example.androiddemo.test.test;
+import com.example.androiddemo.tool.StaticTool;
+import com.example.androiddemo.tool.Person;
 import com.example.androiddemo.web.WebServicePost;
 
-import java.io.File;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
+    Intent intent;
+
+    // 个人信息类
+    Person person;
+
     // 部件
     private EditText userid;
     private EditText password;
     private CheckBox ismanager;
-
-    // 文件路径
-    static String filename = "/external_sd/JavaWeb/";
-    static final String FILE_PATH = Environment.getExternalStorageDirectory().getPath()+ File.separator+filename;
 
     // 提示框
     ProgressDialog dialog;
@@ -74,8 +75,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 // 设置发送的数据
                 try {
                     data = "Sno=" + URLEncoder.encode(userid.getText().toString(),"UTF-8") +
-                            "&Spassword=" + URLEncoder.encode(password.getText().toString(),"UTF-8") +
+                            "&Spassword=" + URLEncoder.encode(StaticTool.GetMD5(password.getText().toString()),"UTF-8") +
                             "&ismanager=" + ismanager.isChecked();
+                    person = new Person();
+                    person.setSno(userid.getText().toString());
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
@@ -86,8 +89,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
             // 注册按钮
             case R.id.register:
                 //跳转注册页面
-                Intent intent = new Intent(Login.this,Register.class);
+                intent = new Intent(Login.this,Register.class);
                 startActivity(intent);
+                // TODO 测试返回两层返回
+                finish();
                 break;
         }
     }
@@ -110,22 +115,15 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
             //更新UI
             @Override
             public void run() {
-                dialog.dismiss();
-                if (response.equals("false")) {
-                    Toast.makeText(Login.this, "登陆失败！", Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent intent = new Intent(Login.this, Content.class);
-                    try {
-
-                        // FIXME System.out.print
-                        System.out.println("Login:121:filepath:" + FILE_PATH + "SessionID.txt");
-
-                        test.writeTxtToFile(response, FILE_PATH, "SessionID.txt");
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    startActivity(intent);
-                }
+            dialog.dismiss();
+            if (response.equals("false")) {
+                Toast.makeText(Login.this, "登陆失败！", Toast.LENGTH_SHORT).show();
+            } else {
+                Intent intent = new Intent();
+                person.setSession(response);
+                intent.putExtra("person",person);
+                finish();
+            }
 
             }
         });
