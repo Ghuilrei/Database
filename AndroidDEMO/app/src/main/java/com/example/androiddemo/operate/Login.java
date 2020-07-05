@@ -82,7 +82,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
-                // 设置子线程，分别进行Get和Post传输数据
+                // 设置子线程，进行Post传输数据
                 new Thread(new MyThread()).start();
                 break;
 
@@ -120,7 +120,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 Toast.makeText(Login.this, "登陆失败！", Toast.LENGTH_SHORT).show();
             } else {
                 Intent intent = new Intent();
-                person.setSession(response);
+                person.setALL(response);
                 intent.putExtra("person",person);
                 finish();
             }
