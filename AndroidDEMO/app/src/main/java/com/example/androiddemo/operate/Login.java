@@ -82,9 +82,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
-                // 设置子线程，进行Post传输数据
-                new Thread(new MyThread()).start();
-                break;
+//                // 设置子线程，登陆
+//                new Thread(new MyThread()).start();
+//                break;
 
             // 注册按钮
             case R.id.register:
