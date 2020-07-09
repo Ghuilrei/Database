@@ -20,7 +20,8 @@ public class History extends AppCompatActivity {
         //获取控件
         webView = findViewById(R.id.webView);
         //装载URL
-        webView.loadUrl("http://192.168.0.116:8080/ServerDEMO/History");
+//        webView.loadUrl("http://192.168.0.116:8080/ServerDEMO/History");
+        webView.loadUrl("https://baidu.com");
         //获取焦点
         webView.requestFocus();
 

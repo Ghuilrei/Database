@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".work.history">
+        <activity android:name=".operate.Content">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +23,7 @@
         <activity android:name=".operate.Register"></activity>
         <activity android:name=".operate.Login"></activity>
         <activity android:name=".work.Information"></activity>
-<!--        <activity android:name=".work.history"></activity>-->
+        <activity android:name=".work.History"></activity>
     </application>
 
 

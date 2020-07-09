@@ -53,7 +53,6 @@ public class Person implements Serializable {
     public void setSession (String session) {
         this.session = session;
         try {
-            setSession(session);
             // FIXME System.out.print
             System.out.println("Login:121:filepath:" + getFilePath() + "SessionID.txt");
 
