@@ -25,16 +25,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab36af53-a022-43d7-9308-8199896e1c47" name="Default Changelist" comment="07/02 10:15 Commit">
-      <change afterPath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/tool/DBHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/tool/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/tool/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/work/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/java/com/example/androiddemo/work/History.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidDEMO/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Demo.xmind" beforeDir="false" afterPath="$PROJECT_DIR$/../Demo.xmind" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Expecionss.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Expecionss.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/service/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/servlet/ConLet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/servlet/ConLet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/test/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/test/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,6 +189,7 @@
       <workItem from="1593612769405" duration="16822000" />
       <workItem from="1594222407410" duration="756000" />
       <workItem from="1594261239318" duration="501000" />
+      <workItem from="1594263286738" duration="1905000" />
     </task>
     <task id="LOCAL-00001" summary="07/02 10:15 Commit">
       <created>1593656152674</created>

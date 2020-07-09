@@ -22,21 +22,20 @@ public class ConLet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String guess = request.getParameter("guess");
-        guess = new String(guess.getBytes("ISO-8859-1"),"UTF-8");
+        // 获取session
+        String session = request.getParameter("session");
+        session = new String(session.getBytes("ISO-8859-1"),"UTF-8");
+        // 获取用户id
         String userid = request.getParameter("userid");
         userid = new String(userid.getBytes("ISO-8859-1"),"UTF-8");
 
-        //新建服务对象
-        Service service = new Service();
-
-        //返回信息到客户端
+        // 返回信息设置
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
         //验证处理
-        String stuid = service.loginwithoutpd(guess, userid);
+        String stuid = Service.loginwithoutpd(session, userid);
         switch (stuid) {
             case "false":
                 // FIXME System.out.println
@@ -61,7 +60,7 @@ public class ConLet extends HttpServlet{
                 // new Date()为获取当前系统时间，也可使用当前时间戳
                 String date = df.format(new Date());
                 String new_guess = MD5.getMD5String(date + userid);
-                boolean rcd = service.session(new_guess, userid, date);
+                boolean rcd = Service.session(new_guess, userid, date);
                 // FIXME System.out.println
                 System.out.println("ConLet:62:rcd:"+rcd);
                 out.print("");
