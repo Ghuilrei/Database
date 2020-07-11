@@ -11,13 +11,17 @@ import java.sql.*;
 
 public class DbManager {
 
+    /** 数据库驱动 **/
 //    public static final String DRIVER = "com.mysql.jdbc.Driver";
-    /**
-     * 数据库连常量
-     */
+    private static final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+
+    /** 用户名、密码 **/
     public static final String USER = "JavaWeb_Android";
     public static final String PASS = "aktwthTK8sqaPGPs";
-    public static final String URL = "jdbc:mysql://localhost:3306/JavaWeb_Android";
+
+    /** 数据库地址 **/
+//    public static final String URL = "jdbc:mysql://localhost:3306/Library";
+    public static final String URL = "jdbc:sqlserver://127.0.0.1:1433;DatabaseName=Library";
 
     /**
      * 静态成员，支持单态模式
@@ -49,7 +53,7 @@ public class DbManager {
      */
     public void initDataBase() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("DRIVER");
         } catch (Exception e) {
             e.printStackTrace();
         }
