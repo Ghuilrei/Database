@@ -2,58 +2,64 @@ package com.servlet;
  
 import java.io.IOException;
 import java.io.PrintWriter;
- 
-import javax.servlet.ServletException;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
 import com.service.Service;
- 
+import com.tools.MissParameter;
+
+/**
+ * @description 操作数据库
+ * @author Ghuilrei
+ * @date 2020/7/9 17:38
+ * @version V1.0
+ */
+
 public class RegLet extends HttpServlet{
- 
-	private static final long serialVersionUID = 1L;
+
+	/** 操作数据库 **/
+	Service service;
  
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		doPost(request, response);
-		
 	}
  
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			//接受客户端信息
-			System.out.print(request);
-			String userid = request.getParameter("userid");
-			String username = request.getParameter("username");
-			username = new String(username.getBytes("ISO-8859-1"),"UTF-8");
-			String password = request.getParameter("password");
-			
-//			System.out.println(username + ":" + password);
-			
-			//新建服务对象
-			Service service = new Service();
-				
-			//验证处理
-			boolean reg = service.register(userid, username, password);
-			if( reg ){
-				System.out.println("reg success");
-				//request.getSession().setAttribute("username", username);
-			}else{
-				System.out.println("reg fail");
-			}
-				
-			//返回信息到客户端
-			response.setCharacterEncoding("UTF-8");
-			response.setContentType("text/html");
-			PrintWriter out = response.getWriter();
-			if(reg){
-				out.print("true");
-			}else{
-				out.print("false");
-			}
-			out.flush();
-			out.close();
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+		// 实例化
+		service = new Service();
+
+		// 返回值
+		String back = "";
+
+		// 用户ID
+		String userId = request.getParameter("userid");
+		// 用户名
+		String userName = request.getParameter("username");
+		// 用户密码
+		String password = request.getParameter("password");
+
+
+
+		back = MissParameter.allIsNotNull(userId, userName, password);
+
+		if (back.isEmpty()) {
+			back = service.regester(userId, userName, password);
+		} else {
+			back = back + "03";
+		}
+
+		// 返回信息到客户端
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.print(back);
+		out.flush();
+		out.close();
 	}
  
 }

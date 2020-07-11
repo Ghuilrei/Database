@@ -13,29 +13,33 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 /**
- * 使用Post方法获取Http服务器数据
+ * @description 使用Post方法获取Http服务器数据
+ * @author Ghuilrei
+ * @date 2020/7/9 17:38
+ * @version V1.0
  */
 
 public class WebServicePost {
 
-    public static String executeHttpPost(String postdata, String address){
+    public static String executeHttpPost(String postData, String catalogue){
         HttpURLConnection connection = null;
         InputStream in = null;
 
         try{
-            String Url = "http://192.168.0.116:8080/ServerDEMO/" + address;
+            String address = "http://192.168.0.116:8080/ServerDEMO/" + catalogue;
             try {
-                URL url = new URL(Url);
+                URL url = new URL(address);
                 connection = (HttpURLConnection)url.openConnection();
                 connection.setDoInput(true);
                 connection.setDoOutput(true);
                 connection.setRequestMethod("POST");
-                connection.setReadTimeout(8000);//传递数据超时
+                //传递数据超时
+                connection.setReadTimeout(8000);
                 connection.setUseCaches(false);
                 connection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
                 connection.connect();
                 DataOutputStream out = new DataOutputStream(connection.getOutputStream());
-                out.writeBytes(postdata);
+                out.writeBytes(postData);
                 out.flush();
                 out.close();
                 int resultCode = connection.getResponseCode();
@@ -66,10 +70,15 @@ public class WebServicePost {
         }
         return null;
     }
-    //得到字节输入流，将字节输入流转化为String类型
+
+    /**
+     * @description 得到字节输入流，将字节输入流转化为String类型
+     * @param inputStream 字节输入流
+     * @return String
+     */
     public static String parseInfo(InputStream inputStream){
         BufferedReader reader = null;
-        String line = "";
+        String line;
         StringBuilder response = new StringBuilder();
 
         try {

@@ -12,35 +12,69 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.androiddemo.R;
-import com.example.androiddemo.tool.StaticTool;
 import com.example.androiddemo.tool.Person;
 import com.example.androiddemo.web.WebServicePost;
 
-
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+
+import com.facebook.stetho.Stetho;
+
+import static com.example.androiddemo.tool.Error.handleError;
+import static com.example.androiddemo.tool.StaticTool.GetMD5;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
     Intent intent;
 
-    // 个人信息类
+    /** 个人信息类 **/
     Person person;
 
-    // 部件
+    /** 部件 **/
     private EditText userid;
     private EditText password;
     private CheckBox ismanager;
 
-    // 提示框
+    /** 提示框 **/
     ProgressDialog dialog;
 
-    // 发送到服务器的数据
+    /** 发送到服务器的数据 **/
     private String data;
+
+    /** 登陆返回值 **/
+    private static String error = "Error";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // 数据库连接初始化
+        Stetho.initializeWithDefaults(this);
+
+        person = new Person(this);
+
+        // 数据库中存在Session
+        if (!"NULL".equals(person.getUserId())) {
+            // 尝试使用Session登陆
+            try {
+                data = "kind=session"+
+                        "&userid=" + URLEncoder.encode(person.getUserId(),"UTF-8") +
+                        "&session=" + URLEncoder.encode(person.getSession(),"UTF-8") +
+                        "&ismanager=" + URLEncoder.encode(person.getIsManager(), "UTF-8");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            // TODO Session 登陆 发送数据：
+            System.out.println(" Session 登陆 发送数据：" + data);
+
+            // 设置子线程，登陆
+            new Thread(new MyThread()).start();
+        }
+
+        // TODO Session 登录失败
+        System.out.println("Session 登录失败");
+
+        // 不存在或登陆失败
         setContentView(R.layout.activity_login);
 
         // 部件
@@ -59,7 +93,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         register.setOnClickListener(this);
     }
 
-
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -72,25 +105,31 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 //设置可以通过back键取消
                 dialog.setCancelable(false);
                 dialog.show();
+
                 // 设置发送的数据
                 try {
-                    data = "Sno=" + URLEncoder.encode(userid.getText().toString(),"UTF-8") +
-                            "&Spassword=" + URLEncoder.encode(StaticTool.GetMD5(password.getText().toString()),"UTF-8") +
-                            "&ismanager=" + ismanager.isChecked();
-                    person = new Person();
-                    person.setSno(userid.getText().toString());
-                } catch (UnsupportedEncodingException e) {
+                    data = "kind=password"+
+                            "&userid=" + URLEncoder.encode(userid.getText().toString(),"UTF-8") +
+                            "&password=" + URLEncoder.encode(GetMD5(password.getText().toString()),"UTF-8") +
+                            "&ismanager=" + URLEncoder.encode(ismanager.isChecked() ? "true" : "false", "UTF-8");
+                    // TODO Password 登陆 发送数据：
+                    System.out.println(" Password 登陆 发送数据：" + data);
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
-//                // 设置子线程，登陆
-//                new Thread(new MyThread()).start();
-//                break;
+
+                // 设置子线程，登陆
+                new Thread(new MyThread()).start();
+                break;
 
             // 注册按钮
             case R.id.register:
                 //跳转注册页面
                 intent = new Intent(Login.this,Register.class);
                 startActivity(intent);
+                break;
+
+            default:
                 break;
         }
     }
@@ -113,18 +152,32 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
             //更新UI
             @Override
             public void run() {
-            dialog.dismiss();
-            if (response.equals("false")) {
-                Toast.makeText(Login.this, "登陆失败！", Toast.LENGTH_SHORT).show();
-            } else {
-                Intent intent = new Intent();
-                // TODO response格式要求："{[Session:666666],[Sno:666666],[Sname:admin]}"
-                person.setALL(response);
-                intent.putExtra("person",person);
-                setResult(1);
-                finish();
-            }
 
+                try {
+                    dialog.dismiss();
+                } catch (NullPointerException e) {
+                    // TODO Session登陆过程中
+                    System.out.println("Session登陆过程中");
+                }
+
+                // TODO response:
+                System.out.println("response:"+response);
+
+                // 处理错误
+                String re = handleError(Login.this, response);
+                // 没发生错误
+                if (!error.equals(re)) {
+
+                    // TODO 没发生错误：re:
+                    System.out.println("没发生错误：re:"+re);
+
+                    Intent intent = new Intent(Login.this, Content.class);
+                    // TODO response格式要求："{[session:666666],[userid:666666],[name:admin],[ismanager:true]}"
+                    person.setAll(response, Login.this);
+                    intent.putExtra("person",person);
+                    finish();
+                    startActivity(intent);
+                }
             }
         });
     }

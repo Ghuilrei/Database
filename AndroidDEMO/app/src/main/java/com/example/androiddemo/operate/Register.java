@@ -8,10 +8,13 @@ import com.example.androiddemo.R;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import com.example.androiddemo.web.WebServicePost;
 
@@ -20,16 +23,17 @@ import java.net.URLEncoder;
 
 public class Register extends AppCompatActivity implements View.OnClickListener{
 
-    // 部件
+    /** 部件 **/
     private EditText regSno;
     private EditText regSname;
     private EditText regPassWord;
     private EditText regPassWord2;
+    private CheckBox regIsManager;
 
-    // 提示框
+    /** 提示框 **/
     ProgressDialog dialog;
 
-    // 发送到服务器的数据
+    /** 要发送的数据 **/
     private String data;
 
     @Override
@@ -37,22 +41,24 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-//        //修改标题栏title
-//        ActionBar ac = getSupportActionBar();
-//        ac.setTitle("注册");
+        //修改标题栏title
+        ActionBar ac = getSupportActionBar();
+        assert ac != null;
+        ac.setTitle("注册");
 
         // 部件
-        Button btn_reg;
+        Button btnReg;
 
         //初始化
         regSno = findViewById(R.id.regUserID);
         regSname = findViewById(R.id.regUserName);
         regPassWord = findViewById(R.id.regPassWord);
         regPassWord2 = findViewById(R.id.regPassWord2);
-        btn_reg = findViewById(R.id.btn_reg);
+        regIsManager = findViewById(R.id.regIsManager);
+        btnReg = findViewById(R.id.btn_reg);
 
         // 注册监听器
-        btn_reg.setOnClickListener(this);
+        btnReg.setOnClickListener(this);
     }
 
     @Override
@@ -65,9 +71,10 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
             dialog.show();
             // 制作请求信息
             try {
-                data = "Sno=" + URLEncoder.encode(regSno.getText().toString(),"UTF-8") +
-                        "&Sname=" + URLEncoder.encode(regSname.getText().toString(),"UTF-8") +
-                        "&Spassword=" + URLEncoder.encode(regPassWord.getText().toString(),"UTF-8");
+                data = "userid=" + URLEncoder.encode(regSno.getText().toString(),"UTF-8") +
+                        "&name=" + URLEncoder.encode(regSname.getText().toString(),"UTF-8") +
+                        "&password=" + URLEncoder.encode(regPassWord.getText().toString(),"UTF-8")+
+                        "&manager="+ URLEncoder.encode(regIsManager.isChecked() ? "true" : "false");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -125,6 +132,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                     builder.setTitle("注册信息");
                     builder.setMessage("注册失败");
                     builder.setCancelable(false);
+                    builder.setPositiveButton("OK", null);
 //                    builder.setPositiveButton("OK",new DialogInterface.OnClickListener(){
 //                        @Override
 //                        public void onClick(DialogInterface dialogInterface, int i) {

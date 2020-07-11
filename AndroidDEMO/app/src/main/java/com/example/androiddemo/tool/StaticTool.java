@@ -19,11 +19,12 @@ public class StaticTool {
 
 //    // 测试用主函数
 //    public static void main(String[] args) {
-//        String[] a = Regular_Expression();
-//        for (int i = 0; i < 2; ++i) {
-//            System.out.println(a[i]);
+//        String a = "{[session:123],[userId:111111],[name:Sunyh],[ismanager:false]}";
+//        Pattern compile = Pattern.compile("\\[(\\w+?)\\:(\\w+?)\\],?");
+//        Matcher matcher = compile.matcher(a);
+//        while (matcher.find()) {
+//            System.out.println(matcher.group(1)+" : "+matcher.group(2));
 //        }
-//
 //    }
 
     /**
@@ -56,7 +57,7 @@ public class StaticTool {
      * @date        2019-07-05 10:53
      */
     public static HashMap<String, String> Regular_Expression(String str) {
-        Pattern compile = Pattern.compile("\\[\\w+?\\:(\\w+?)\\],?");
+        Pattern compile = Pattern.compile("\\[(\\w+?)\\:(\\w+?)\\],?");
         Matcher matcher = compile.matcher(str);
         HashMap<String, String> map = new HashMap<String, String>();
         while (matcher.find()) {
