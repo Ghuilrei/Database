@@ -1,4 +1,4 @@
-package com.servlet;
+package com.system;
  
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
  
 import com.service.Service;
 import com.tools.MissParameter;
+import com.tools.SQLInjection;
 
 /**
  * @description 操作数据库
@@ -37,27 +38,34 @@ public class RegLet extends HttpServlet{
 		String back = "";
 
 		// 用户ID
-		String userId = request.getParameter("userid");
+		String phone = request.getParameter("phone");
 		// 用户名
-		String userName = request.getParameter("username");
+		String userName = request.getParameter("user_name");
 		// 用户密码
 		String password = request.getParameter("password");
+		// 用户身份
+		String ismanager = request.getParameter("is_manager");
 
 
 
-		back = MissParameter.allIsNotNull(userId, userName, password);
+		back = MissParameter.allNotNullEmpty(phone, userName, password, ismanager);
+		back += SQLInjection.SQLInjectionTest(phone, userName, password, ismanager);
 
 		if (back.isEmpty()) {
-			back = service.regester(userId, userName, password);
+			back = service.register(phone, userName, password, ismanager) + "B02";
 		} else {
-			back = back + "03";
+			back = back + "B02";
 		}
 
 		// 返回信息到客户端
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		out.print(back);
+
+		// TODO return code B02
+		System.out.println("B02:"+back);
+
+		out.print("{[recode:"+back+"]}");
 		out.flush();
 		out.close();
 	}

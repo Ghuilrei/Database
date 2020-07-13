@@ -1,6 +1,10 @@
 package com.test;
 
 import com.service.Service;
+import com.tools.SQLInjection;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 /**
  * @description 测试函数
@@ -11,9 +15,9 @@ import com.service.Service;
 
 public class test {
 
-    public static void main(String[] args) {
-        Service service = new Service();
-        System.out.println();
+    public static void main(String[] args) throws UnsupportedEncodingException {
+//        System.out.println("out:"+SQLInjection.SQLInjectionTest("123 and 1 = 1--", "123123"));
+        System.out.println(URLEncoder.encode("男","UTF-8"));
     }
 
 

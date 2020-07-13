@@ -17,15 +17,19 @@ import java.util.regex.Pattern;
 
 public class StaticTool {
 
-//    // 测试用主函数
-//    public static void main(String[] args) {
-//        String a = "{[session:123],[userId:111111],[name:Sunyh],[ismanager:false]}";
-//        Pattern compile = Pattern.compile("\\[(\\w+?)\\:(\\w+?)\\],?");
-//        Matcher matcher = compile.matcher(a);
-//        while (matcher.find()) {
-//            System.out.println(matcher.group(1)+" : "+matcher.group(2));
-//        }
-//    }
+    // 测试用主函数
+    public static void main(String[] args) {
+        String a = "{[recode:A0300];{[user_name:小明],[sex:男],[age:29],[phone:15787223423],[num:4],[is_ban:0],[is_manager:1],[phone:15787223423]";
+        String [] arr2 = a.split(";");
+        for(String ss : arr2){
+            System.out.println(ss);
+            Pattern compile = Pattern.compile("\\[(\\w+?)\\:((\\w|[\u4E00-\u9FA5])+?)\\],?");
+            Matcher matcher = compile.matcher(ss);
+            while (matcher.find()) {
+                System.out.println(matcher.group(1)+" : "+matcher.group(2));
+            }
+        }
+    }
 
     /**
      * @author      Ghuilrei

@@ -1,4 +1,4 @@
-package com.servlet;
+package com.system;
  
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.service.Service;
 import com.tools.MissParameter;
+import com.tools.SQLInjection;
 
 /**
  * @description 登陆
@@ -26,67 +27,68 @@ public class LogLet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		doPost(request, response);
 	}
- 
+
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-		 service = new Service();
+		service = new Service();
 
 		// 返回值
 		String back = "";
 
 		// 获取登陆类型
 		String kind = request.getParameter("kind");
-		// 用户ID
-		String userId = request.getParameter("userid");
-		back = MissParameter.allIsNotNull(kind, userId);
+		back = MissParameter.allNotNullEmpty(kind);
 		if (back.isEmpty()) {
-			// TODO kind:
-			System.out.println("kind:"+kind);
 
 			switch (kind) {
 				// Session登陆
 				case "session":
+					// 用户ID
+					String user_id = request.getParameter("user_id");
+					// session
 					String session = request.getParameter("session");
-					back = MissParameter.allIsNotNull(session);
+					back = MissParameter.allNotNullEmpty(user_id, session);
+					back += SQLInjection.SQLInjectionTest(user_id, session);
 					if (back.isEmpty()) {
 						// 获取返回值
-						back = sessionLogin(userId, session);
+						back = sessionLogin(user_id, session);
 					} else {
-						back = back + "02";
+						back = back + "B0102";
 					}
 					break;
 				// 用户名-密码登陆
 				case "password":
+					// 用户手机号
+					String phone = request.getParameter("phone");
+					// 密码
 					String password = request.getParameter("password");
 
-					// TODO password:
-					System.out.println("password:" + password);
-
-					back = MissParameter.allIsNotNull(password);
+					back = MissParameter.allNotNullEmpty(phone, password);
+					back += SQLInjection.SQLInjectionTest(phone, password);
 					if (back.isEmpty()) {
 						// 获取返回值
-						back = passwordLogin(userId, password);
+						back = passwordLogin(phone, password);
 					} else {
-						back = back + "03";
+						back = back + "B0103";
 					}
 					break;
 				default:
 					break;
 			}
 		} else {
-			back = back + "01";
+			back = back + "B0101";
 		}
-
-		// TODO LogLet返回值：
-		System.out.println("LogLet返回值："+back);
 
 		// 返回信息到客户端
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		out.println(back);
-		out.print("hello!");
+
+		// TODO return code B01
+		System.out.println("B01:"+back);
+
+		out.print("{[recode:"+back+"]}");
 		out.flush();
 		out.close();
 	}
@@ -100,26 +102,27 @@ public class LogLet extends HttpServlet{
 	 * 	登陆失败：错误码
 	 */
 	public String sessionLogin(String userid, String session){
-		return service.sessionLogin(userid, session);
+		String result = service.sessionLogin(userid, session);
+		if ("A0300".equals(result)) {
+			return "{[session:" + service.updateSession("-1", userid) + "]," + service.UserBase(userid, "-1")+"}";
+		} else {
+			return result;
+		}
 	}
 
 	/**
 	 * @description Password登陆
-	 * @param userid String：用户ID
+	 * @param phone String：用户手机号
 	 * @param password String：密码
 	 * @return 返回结果
-	 * 	登陆成功："{[userId:***],[name:***]}"
-	 * 	登陆过期："Login expired."
-	 * 	登陆失败："Login error."
 	 */
-	public String passwordLogin(String userid, String password){
-		String result = service.passwordLogin(userid, password);
-		if ("false".equals(result)) {
-			result = "Login error.";
+	public String passwordLogin(String phone, String password){
+		String result = service.passwordLogin(phone, password);
+		if ("A0200".equals(result)) {
+			return "{[session:" + service.updateSession(phone, "-1") + "]," + service.UserBase("-1", phone)+"}";
 		} else {
-			service.updataSession(userid);
+			return result;
 		}
-		return result;
 	}
  
 }

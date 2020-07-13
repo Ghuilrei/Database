@@ -15,21 +15,39 @@ public class MissParameter {
     /**
      * @description 判断传入字符串是否全不空/空字符串
      * @param msgs 需要检测的字符串们
-     * @return 05:
+     * @return 错误码：“0002” 或 成功：“”
      */
-    public static String allIsNotNull(String ... msgs) {
-
-        // TODO msgs 的数量
-        System.out.println("msgs的数量:"+msgs.length);
+    public static String allNotNullEmpty(String ... msgs) {
 
         for (String s : msgs) {
             if (s == null || s.isEmpty() || s.equals(emp)) {
-                return "05";
+                return "T0002";
             }
 
             // TODO missParameter 遍历
-            System.out.println("missParameter 遍历" + s);
+            System.out.println("allNotNullEmpty 遍历" + s);
         }
         return "";
     }
+
+
+    /**
+     * @description 判断传入字符串是否不全为空或空字符串
+     * @param msgs 需要检测的字符串们
+     * @return 错误码：“0003” 或 成功：“”
+     */
+    public static String allNotNull (String ... msgs) {
+
+        for (String s : msgs) {
+            if (s == null) {
+                return "T0003";
+            }
+
+            // TODO missParameter 遍历
+            System.out.println("allNotNull 遍历" + s);
+        }
+        return "";
+    }
+
+
 }

@@ -17,17 +17,26 @@ public class SQLInjection {
     /** 表示忽略大小写 **/
     static Pattern sqlPattern = Pattern.compile(reg, Pattern.CASE_INSENSITIVE);
 
-    /**
-     * 参数校验
-     * @param str ep: "or 1=1"
-     */
+    public static String SQLInjectionTest(String ... msgs) {
+        for (String s : msgs) {
+            if (isSqlValid(s)) {
+                return "T0001";
+            }
+
+            // TODO missParameter 遍历
+            System.out.println("SQLInjectionTest 遍历" + s);
+        }
+        return "";
+    }
+
     public static boolean isSqlValid(String str) {
+        str = str==null ? "" : str;
         Matcher matcher = sqlPattern.matcher(str);
         if (matcher.find()) {
             //获取非法字符：or
             System.out.println("参数存在非法字符，请确认："+matcher.group());
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 }

@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-
+<!--    系统部分 -->
     <servlet-mapping>
         <servlet-name>LogLet</servlet-name>
         <url-pattern>/LogLet</url-pattern>
@@ -16,23 +16,126 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>ConLet</servlet-name>
-        <url-pattern>/ConLet</url-pattern>
+        <servlet-name>LogOffLet</servlet-name>
+        <url-pattern>/LogOffLet</url-pattern>
     </servlet-mapping>
 
+<!--    用户部分-->
+    <servlet-mapping>
+        <servlet-name>CheckBook</servlet-name>
+        <url-pattern>/CheckBook</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>OrderBook</servlet-name>
+        <url-pattern>/OrderBook</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CheckHistory</servlet-name>
+        <url-pattern>/CheckHistory</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RenewBook</servlet-name>
+        <url-pattern>/RenewBook</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CheckUser</servlet-name>
+        <url-pattern>/CheckUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateUser</servlet-name>
+        <url-pattern>/UpdateUser</url-pattern>
+    </servlet-mapping>
+
+<!--    管理员部分-->
+    <servlet-mapping>
+        <servlet-name>Book</servlet-name>
+        <url-pattern>/Book</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>BorrowBook</servlet-name>
+        <url-pattern>/BorrowBook</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ReturnBook</servlet-name>
+        <url-pattern>/ReturnBook</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+
+
+<!--    系统部分 -->
     <servlet>
         <servlet-name>LogLet</servlet-name>
-        <servlet-class>com.servlet.LogLet</servlet-class>
-    </servlet>
-
-    <servlet>
-        <servlet-name>ConLet</servlet-name>
-        <servlet-class>com.servlet.ConLet</servlet-class>
+        <servlet-class>com.system.LogLet</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>RegLet</servlet-name>
-        <servlet-class>com.servlet.RegLet</servlet-class>
+        <servlet-class>com.system.RegLet</servlet-class>
     </servlet>
+
+    <servlet>
+        <servlet-name>LogOffLet</servlet-name>
+        <servlet-class>com.system.LogOffLet</servlet-class>
+    </servlet>
+
+<!--    用户部分-->
+    <servlet>
+        <servlet-name>CheckBook</servlet-name>
+        <servlet-class>com.user.CheckBook</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>OrderBook</servlet-name>
+        <servlet-class>com.user.OrderBook</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CheckHistory</servlet-name>
+        <servlet-class>com.user.CheckHistory</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>RenewBook</servlet-name>
+        <servlet-class>com.user.RenewBook</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CheckUser</servlet-name>
+        <servlet-class>com.user.CheckUser</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateUser</servlet-name>
+        <servlet-class>com.user.UpdateUser</servlet-class>
+    </servlet>
+
+<!--    管理员部分-->
+    <servlet>
+        <servlet-name>Book</servlet-name>
+        <servlet-class>com.manager.Book</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>BorrowBook</servlet-name>
+        <servlet-class>com.manager.BorrowBook</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ReturnBook</servlet-name>
+        <servlet-class>com.manager.ReturnBook</servlet-class>
+    </servlet>
+
+
 
 </web-app>

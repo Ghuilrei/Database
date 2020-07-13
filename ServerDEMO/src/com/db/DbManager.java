@@ -12,16 +12,17 @@ import java.sql.*;
 public class DbManager {
 
     /** 数据库驱动 **/
+    public static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 //    public static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+//    private static final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
     /** 用户名、密码 **/
-    public static final String USER = "JavaWeb_Android";
-    public static final String PASS = "aktwthTK8sqaPGPs";
+    public static final String USER = "root";
+    public static final String PASS = "Sunyuhang0616";
 
     /** 数据库地址 **/
-//    public static final String URL = "jdbc:mysql://localhost:3306/Library";
-    public static final String URL = "jdbc:sqlserver://127.0.0.1:1433;DatabaseName=Library";
+    public static final String URL = "jdbc:mysql://localhost:3306/Library";
+//    public static final String URL = "jdbc:sqlserver://127.0.0.1:1433;DatabaseName=Library";
 
     /**
      * 静态成员，支持单态模式
@@ -53,7 +54,7 @@ public class DbManager {
      */
     public void initDataBase() {
         try {
-            Class.forName("DRIVER");
+            Class.forName(DRIVER);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -80,16 +81,16 @@ public class DbManager {
      * @description 关闭数据库 关闭对象，释放句柄
      */
     public void closeDataBase() {
-        // FIXME System.out.println
-        System.out.println("DbManager:55:Close connection to database..");
+        // FIXME Close connection to database..
+        System.out.println("Close connection to database..");
         try {
             stmt.close();
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        // FIXME System.out.println
-        System.out.println("DbManager:61:Close connection successful");
+        // FIXME Close connection successful
+        System.out.println("Close connection successful");
     }
 
     /**
