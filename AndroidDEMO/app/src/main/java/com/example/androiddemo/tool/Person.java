@@ -18,17 +18,24 @@ import java.util.HashMap;
 
 public class Person implements Serializable {
 
+
+    /** 姓名 **/
+    private String user_name;
+
+    /** 学号 **/
+    private String user_id;
+
     /** Session **/
     private String session;
 
-    /** 姓名 **/
-    private String name;
-
-    /** 学号 **/
-    private String userId;
+    /** 手机号 **/
+    private String phone;
 
     /** 身份 **/
-    private String isManager;
+    private String is_manager;
+
+    /** 账号状态 **/
+    private String is_ban;
 
 
     /**
@@ -46,42 +53,53 @@ public class Person implements Serializable {
         //参数5：分组方式
         //参数6：having条件
         //参数7：排序方式
-        Cursor cursor = db.query("Session", new String[]{"userid", "session", "ismanager"}, null, null, null, null, null);
+        Cursor cursor = db.query("Session", new String[]{"user_name", "user_id", "session", "phone", "is_manager", "is_ban"}, null, null, null, null, null);
         if (cursor.moveToNext()) {
-            setUserId(cursor.getString(cursor.getColumnIndex("userid")));
+            // 数据库里有信息
+            setUser_name(cursor.getString(cursor.getColumnIndex("user_name")));
+            setUser_id(cursor.getString(cursor.getColumnIndex("user_id")));
             setSession(cursor.getString(cursor.getColumnIndex("session")));
-            setIsManager(cursor.getString(cursor.getColumnIndex("ismanager")));
+            setPhone(cursor.getString(cursor.getColumnIndex("phone")));
+            setIs_manager(cursor.getString(cursor.getColumnIndex("is_manager")));
+            setIs_ban(cursor.getString(cursor.getColumnIndex("is_ban")));
 
-            // TODO Persion.setAll 的 UserId:
-            System.out.println("Persion.setAll 的 UserId:"+getUserId());
         } else {
-            setUserId("NULL");
+            // 数据库里没信息
+            setUser_name("NULL");
+            setUser_id("NULL");
             setSession("NULL");
-            setIsManager("NULL");
+            setPhone("NULL");
+            setIs_manager("NULL");
+            setIs_ban("NULL");
         }
-        setName("NULL");
         cursor.close();
     }
 
     /**
      * @description 设置Person类中所有信息
-     * @param request 格式要求："{[session:666666],[userid:666666],[name:admin],[ismanager:true]}"
+     * @param data 格式要求："{[session:666666],[userid:666666],[name:admin],[ismanager:true]}"
      */
-    public void setAll (String request, Context context) {
-        HashMap<String, String> data = StaticTool.Regular_Expression(request);
-        setSession(data.get("session"));
-        setUserId(data.get("userId"));
-        setIsManager(data.get("ismanager"));
-        setName(data.get("name"));
+    public void setAll (HashMap<String, String> data, Context context) {
 
-        // TODO Persion.setAll 的 UserId:
-        System.out.println("Persion.setAll 的 UserId:"+data.get("userId"));
+        // 从传入数据中提取个人信息
+        setUser_name(data.get("user_name"));
+        setUser_id(data.get("user_id"));
+        setSession(data.get("session"));
+        System.out.println("123123123123123123123:"+data.get("session"));
+        setPhone(data.get("phone"));
+        setIs_manager(data.get("is_manager"));
+        setIs_ban(data.get("is_ban"));
 
         DataBaseHelper dbhelper = new DataBaseHelper(context);
         ContentValues values = new ContentValues();
-        values.put("userid", getUserId());
+
+        values.put("user_name", getUser_name());
+        values.put("user_id", getUser_id());
         values.put("session", getSession());
-        values.put("ismanager", getIsManager());
+        values.put("phone", getPhone());
+        values.put("is_manager", getIs_manager());
+        values.put("is_ban", getIs_ban());
+
         SQLiteDatabase db = dbhelper.getWritableDatabase();
         if (db.insert("Session", null, values) == -1) {
             // TODO Session 插入失败
@@ -98,36 +116,52 @@ public class Person implements Serializable {
         System.out.println("Session 插入成功");
     }
 
-    private void setSession (String session) {
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
+    public void setSession(String session) {
         this.session = session;
     }
 
-    private void setUserId (String userId) {
-        this.userId = userId;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    private void setName(String name) {
-        this.name = name;
+    public void setIs_manager(String is_manager) {
+        this.is_manager = is_manager;
     }
 
-    private void setIsManager(String isManager) {
-        this.isManager = isManager;
+    public void setIs_ban(String is_ban) {
+        this.is_ban = is_ban;
     }
 
-    public String getSession () {
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public String getSession() {
         return session;
     }
 
-    public String getUserId () {
-        return userId;
+    public String getPhone() {
+        return phone;
     }
 
-    public String getName() {
-        return name;
+    public String getIs_manager() {
+        return is_manager;
     }
 
-    public String getIsManager() {
-        return isManager;
+    public String getIs_ban() {
+        return is_ban;
     }
-
 }
+

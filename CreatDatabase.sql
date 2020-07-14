@@ -101,8 +101,8 @@ insert into bookinfo(category_id,book_name,author,price,press,public_date,remain
 insert into bookinfo(category_id,book_name,author,price,press,public_date,remain) values(2,'且看盛唐','文旭烟',32,'人民出版社','2013-11-29',6);
 
 -- 3 插读者
-insert into loginrecord(phone, last_date, session, password) values ('15787223423', curtime(), '123123', '123123');
-insert into loginrecord(phone, last_date, session, password) values ('15787223426', curtime(), '123123', '123123');
+insert into loginrecord(phone, last_date, session, password) values ('15787223423', curtime(), '123123', 'a384b6463fc216a5f8ecb6670f86456a');
+insert into loginrecord(phone, last_date, session, password) values ('15787223426', curtime(), '123123', 'a384b6463fc216a5f8ecb6670f86456a');
 
 -- 3 更新读者信息
     -- 管理员

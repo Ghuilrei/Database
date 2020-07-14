@@ -47,7 +47,7 @@ public class CheckBook extends HttpServlet {
 
         if ("B04".equals(back)) {
             // 不缺参数，开始登录 back = "B04"
-            back = service.sessionLogin(user_id, session);
+            back += service.sessionLogin(user_id, session);
 
             if ("B04A0300".equals(back)) {
                 // 如果登录成功 开始查询 back = "B04A0300"
@@ -103,7 +103,7 @@ public class CheckBook extends HttpServlet {
         // TODO return code B04
         System.out.println("B04:"+back);
 
-        out.print("{[recode:"+back+"];"+info+"");
+        out.print("{[recode:"+back+"]};"+info+"");
         out.flush();
         out.close();
     }

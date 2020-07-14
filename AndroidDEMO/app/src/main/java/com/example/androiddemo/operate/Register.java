@@ -1,6 +1,5 @@
 package com.example.androiddemo.operate;
 
-
 import android.os.Bundle;
 
 import com.example.androiddemo.R;
@@ -16,10 +15,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+
+import com.example.androiddemo.tool.Response;
 import com.example.androiddemo.web.WebServicePost;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+
+import static com.example.androiddemo.tool.StaticTool.GetMD5;
 
 public class Register extends AppCompatActivity implements View.OnClickListener{
 
@@ -71,10 +74,10 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
             dialog.show();
             // 制作请求信息
             try {
-                data = "userid=" + URLEncoder.encode(regSno.getText().toString(),"UTF-8") +
-                        "&name=" + URLEncoder.encode(regSname.getText().toString(),"UTF-8") +
-                        "&password=" + URLEncoder.encode(regPassWord.getText().toString(),"UTF-8")+
-                        "&manager="+ URLEncoder.encode(regIsManager.isChecked() ? "true" : "false");
+                data = "phone=" + URLEncoder.encode(regSno.getText().toString(),"UTF-8") +
+                        "&user_name=" + URLEncoder.encode(regSname.getText().toString(),"UTF-8") +
+                        "&password=" + URLEncoder.encode(GetMD5(regPassWord.getText().toString()),"UTF-8") +
+                        "&is_manager="+ URLEncoder.encode(regIsManager.isChecked() ? "true" : "false");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -111,7 +114,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if(RegRet.equals("true")){
+                Response response = new Response(RegRet);
+                if("B02A0100".equals(response.getRecode())){
                     dialog.dismiss();
                     AlertDialog.Builder builder = new AlertDialog.Builder(Register.this);
                     builder.setTitle("注册信息");
@@ -133,13 +137,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                     builder.setMessage("注册失败");
                     builder.setCancelable(false);
                     builder.setPositiveButton("OK", null);
-//                    builder.setPositiveButton("OK",new DialogInterface.OnClickListener(){
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            Intent intent = new Intent(Register.this,Register.class);
-//                            startActivity(intent);
-//                        }
-//                    });
                     builder.show();
                 }
             }

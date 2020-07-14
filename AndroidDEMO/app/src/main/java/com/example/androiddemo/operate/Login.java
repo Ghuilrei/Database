@@ -6,20 +6,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.androiddemo.R;
 import com.example.androiddemo.tool.Person;
+import com.example.androiddemo.tool.Response;
 import com.example.androiddemo.web.WebServicePost;
 
 import java.net.URLEncoder;
 
 import com.facebook.stetho.Stetho;
 
-import static com.example.androiddemo.tool.Error.handleError;
 import static com.example.androiddemo.tool.StaticTool.GetMD5;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
@@ -32,16 +31,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     /** 部件 **/
     private EditText userid;
     private EditText password;
-    private CheckBox ismanager;
 
     /** 提示框 **/
     ProgressDialog dialog;
 
     /** 发送到服务器的数据 **/
     private String data;
-
-    /** 登陆返回值 **/
-    private static String error = "Error";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +48,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         person = new Person(this);
 
         // 数据库中存在Session
-        if (!"NULL".equals(person.getUserId())) {
+        if (!"NULL".equals(person.getSession())) {
             // 尝试使用Session登陆
             try {
                 data = "kind=session"+
-                        "&userid=" + URLEncoder.encode(person.getUserId(),"UTF-8") +
-                        "&session=" + URLEncoder.encode(person.getSession(),"UTF-8") +
-                        "&ismanager=" + URLEncoder.encode(person.getIsManager(), "UTF-8");
+                        "&user_id=" + URLEncoder.encode(person.getUser_id(),"UTF-8") +
+                        "&session=" + URLEncoder.encode(person.getSession(),"UTF-8");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -84,7 +78,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         //初始化信息
         userid = findViewById(R.id.regUserID);
         password = findViewById(R.id.regPassWord);
-        ismanager = findViewById(R.id.isManager);
         login = findViewById(R.id.btn_reg);
         register = findViewById(R.id.register);
 
@@ -109,9 +102,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 // 设置发送的数据
                 try {
                     data = "kind=password"+
-                            "&userid=" + URLEncoder.encode(userid.getText().toString(),"UTF-8") +
-                            "&password=" + URLEncoder.encode(GetMD5(password.getText().toString()),"UTF-8") +
-                            "&ismanager=" + URLEncoder.encode(ismanager.isChecked() ? "true" : "false", "UTF-8");
+                            "&phone=" + URLEncoder.encode(userid.getText().toString(),"UTF-8") +
+                            "&password=" + URLEncoder.encode(GetMD5(password.getText().toString()),"UTF-8");
                     // TODO Password 登陆 发送数据：
                     System.out.println(" Password 登陆 发送数据：" + data);
                 } catch (Exception e) {
@@ -156,27 +148,31 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 try {
                     dialog.dismiss();
                 } catch (NullPointerException e) {
+                    e.printStackTrace();
                     // TODO Session登陆过程中
                     System.out.println("Session登陆过程中");
                 }
 
-                // TODO response:
-                System.out.println("response:"+response);
+                Response data = new Response(response);
 
-                // 处理错误
-                String re = handleError(Login.this, response);
-                // 没发生错误
-                if (!error.equals(re)) {
+                String recode = data.getRecode();
 
-                    // TODO 没发生错误：re:
-                    System.out.println("没发生错误：re:"+re);
+                // 注册成功
+                if ("B0101".equals(recode) || "B0102".equals(recode)) {
 
+                    // TODO 没发生错误：recode:
+                    System.out.println("没发生错误：recode:"+recode);
+
+                    // 往person中填入信息
+                    person.setAll(data.getInformation()[0], Login.this);
+
+                    // 传信息
                     Intent intent = new Intent(Login.this, Content.class);
-                    // TODO response格式要求："{[session:666666],[userid:666666],[name:admin],[ismanager:true]}"
-                    person.setAll(response, Login.this);
-                    intent.putExtra("person",person);
+                    intent.putExtra("person", person);
                     finish();
                     startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "登陆失败", Toast.LENGTH_SHORT).show();
                 }
             }
         });

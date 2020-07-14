@@ -74,7 +74,7 @@ public class OrderBook extends HttpServlet {
         // TODO return code B05
         System.out.println("B05:"+back);
 
-        out.print("{[recode:"+back+"]}");
+        out.print("{[recode:"+back+"]};");
         out.flush();
         out.close();
     }

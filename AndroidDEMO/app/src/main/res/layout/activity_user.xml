@@ -36,80 +36,23 @@
             android:layout_width="200dp"
             android:layout_height="45dp"
             android:gravity="top|center"
-            android:text="学号：20181101186" />
+            android:text="uid：%1$s" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="365dp"
-        android:layout_height="392dp"
-        android:layout_marginTop="22dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:layout_editor_absoluteX="0dp">
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="527dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8">
 
-        <Button
-            android:id="@+id/check"
+        <LinearLayout
+            android:id="@+id/linearlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="书籍查询" />
-
-        <TextView
-            android:id="@+id/textView23"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-        <Button
-            android:id="@+id/appointment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="书籍预约" />
-
-        <TextView
-            android:id="@+id/textView24"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-        <Button
-            android:id="@+id/history"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="历史借阅查询" />
-
-        <TextView
-            android:id="@+id/textView25"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-        <Button
-            android:id="@+id/renew"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="续借" />
-
-        <TextView
-            android:id="@+id/textView26"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-        <TextView
-            android:id="@+id/textView22"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="" />
-
-        <Button
-            android:id="@+id/exit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:shadowColor="#00FF0000"
-            android:background="#EA4615"
-            android:text="退出登录" />
-
-    </LinearLayout>
+            android:orientation="vertical" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

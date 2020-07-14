@@ -58,7 +58,7 @@ public class LogOffLet extends HttpServlet {
         // TODO return code B03
         System.out.println("B03:"+back);
 
-        out.print("{[recode:"+back+"]}");
+        out.print("{[recode:"+back+"]};");
         out.flush();
         out.close();
     }

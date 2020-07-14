@@ -46,7 +46,7 @@ public class CheckUser extends HttpServlet {
 
         if ("B08".equals(back)) {
             // 不缺参数，开始登录 back = "B08"
-            back = service.sessionLogin(user_id, session);
+            back += service.sessionLogin(user_id, session);
 
             if ("B08A0300".equals(back)) {
                 // 如果登录成功 开始查询 back = "B08A0300"
@@ -62,7 +62,7 @@ public class CheckUser extends HttpServlet {
         // TODO return code B08
         System.out.println("B08:"+back);
 
-        out.print("{[recode:"+back+"];"+info+"");
+        out.print("{[recode:"+back+"]};"+info);
         out.flush();
         out.close();
     }

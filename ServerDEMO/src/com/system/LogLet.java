@@ -34,12 +34,19 @@ public class LogLet extends HttpServlet{
 		service = new Service();
 
 		// 返回值
-		String back = "";
+		String back = "B01";
+		// 返回信息
+		String info = "";
 
 		// 获取登陆类型
 		String kind = request.getParameter("kind");
-		back = MissParameter.allNotNullEmpty(kind);
-		if (back.isEmpty()) {
+
+		// 检测参数是否合法
+		back += MissParameter.allNotNullEmpty(kind);
+		back += SQLInjection.SQLInjectionTest(kind);
+
+		if ("B01".equals(back)) {
+			// 参数合法
 
 			switch (kind) {
 				// Session登陆
@@ -48,13 +55,16 @@ public class LogLet extends HttpServlet{
 					String user_id = request.getParameter("user_id");
 					// session
 					String session = request.getParameter("session");
-					back = MissParameter.allNotNullEmpty(user_id, session);
+					back += MissParameter.allNotNullEmpty(user_id, session);
 					back += SQLInjection.SQLInjectionTest(user_id, session);
-					if (back.isEmpty()) {
+					if ("B01".equals(back)) {
+						back += "01";
 						// 获取返回值
-						back = sessionLogin(user_id, session);
-					} else {
-						back = back + "B0102";
+						info = sessionLogin(user_id, session);
+						if ("A0302".equals(info) || "A0301".equals(info)) {
+							back += info;
+							info = "";
+						}
 					}
 					break;
 				// 用户名-密码登陆
@@ -64,20 +74,21 @@ public class LogLet extends HttpServlet{
 					// 密码
 					String password = request.getParameter("password");
 
-					back = MissParameter.allNotNullEmpty(phone, password);
+					back += MissParameter.allNotNullEmpty(phone, password);
 					back += SQLInjection.SQLInjectionTest(phone, password);
-					if (back.isEmpty()) {
+					if ("B01".equals(back)) {
+						back += "02";
 						// 获取返回值
-						back = passwordLogin(phone, password);
-					} else {
-						back = back + "B0103";
+						info = passwordLogin(phone, password);
+						if ("A0202".equals(info) || "A0201".equals(info)) {
+							back += info;
+							info = "";
+						}
 					}
 					break;
 				default:
 					break;
 			}
-		} else {
-			back = back + "B0101";
 		}
 
 		// 返回信息到客户端
@@ -88,7 +99,7 @@ public class LogLet extends HttpServlet{
 		// TODO return code B01
 		System.out.println("B01:"+back);
 
-		out.print("{[recode:"+back+"]}");
+		out.print("{[recode:"+back+"]};"+info);
 		out.flush();
 		out.close();
 	}

@@ -1,44 +1,60 @@
-登录：
-http://localhost:8080/ServerDEMO/LogLet
-kind=session&user_id=10014&session=614192d4e7ee63d2c4cac896be1bb029
-kind=password&phone=15787223423&password=123123
-
 注册
 http://localhost:8080/ServerDEMO/RegLet
 phone=15787223439&user_name=Ghuilrei&password=123123&is_manager=1
+{[recode:B02A0100]};
 
-退出登录
-http://localhost:8080/ServerDEMO/LogOffLet
-user_id=10014&session=4beb8a6bb73855f9f01df189588792d1
+登录：
+http://localhost:8080/ServerDEMO/LogLet
+kind=session&user_id=10002&session=d6325566651081ae150a403ecbb32bf2
+{[recode:B0101]};
+kind=password&phone=15787223439&password=123123
+{[recode:B0102]};
 
 查询书籍
 http://localhost:8080/ServerDEMO/CheckBook
-user_id=10000&session=8f41d7aa8e75ecd5df91ba426af6476d&book_id=&category_name=&book_name=&author=&press=&public_date=2010-04-25
+user_id=10002&session=4e4eacd40cf85530bf782d02b5641da2&book_id=&category_name=&book_name=&author=&press=&public_date=2010-04-25
+{[recode:B04A0300A0800]};
 
 预定书籍
 http://localhost:8080/ServerDEMO/OrderBook
-user_id=10000&session=32a5080a8d73ee40e44462341601bac&book_id=1000
+user_id=10002&session=4e4eacd40cf85530bf782d02b5641da2&book_id=1000
+{[recode:B05A0300A0900]};
 
 查询历史借阅
 http://localhost:8080/ServerDEMO/CheckHistory
-user_id=10000&session=32a5080a8d73ee40e44462341601bac
+user_id=10002&session=4e4eacd40cf85530bf782d02b5641da2
+{[recode:B06A0300A1000]};
 
 查询个人信息
 http://localhost:8080/ServerDEMO/CheckUser
-user_id=10000&session=32a5080a8d73ee40e44462341601bac
+user_id=10002&session=4e4eacd40cf85530bf782d02b5641da2
+{[recode:B08A0300]};
 
 更新个人信息
 http://localhost:8080/ServerDEMO/UpdateUser
-user_id=10000&session=32a5080a8d73ee40e44462341601bac&sex=男&user_name=小明&age=29&phone=15787223423
+user_id=10002&session=4e4eacd40cf85530bf782d02b5641da2&sex=男&user_name=小明&age=29&phone=15787223423
+{[recode:B09A0300A1300]};
 
 上下架书籍
 http://localhost:8080/ServerDEMO/Book
-user_id=10000&session=32a5080a8d73ee40e44462341601bac&operate=up&category_id=1&book_name=白帽子讲Web安全&author=吴翰清&price=69.00&press=电子工业出版社&public_date=2012-03-01&remain=3
+
+user_id=10002&session=4e4eacd40cf85530bf782d02b5641da2&operate=up&category_id=1&book_name=白帽子讲Web安全&author=吴翰清&price=69.00&press=电子工业出版社&public_date=2012-03-01&remain=3
+{[recode:B10A0300A0500A1400]};
+
+user_id=10002&session=4e4eacd40cf85530bf782d02b5641da2&operate=down&book_id=1009
+{[recode:B10A0300A0500A1500]};
 
 借书
 http://localhost:8080/ServerDEMO/BorrowBook
-user_id=10000&session=32a5080a8d73ee40e44462341601bac&book_id=1008
+user_id=10002&session=4e4eacd40cf85530bf782d02b5641da2&book_id=1008&borrow_id=10001
+{[recode:B11A0300A0500A1600]};
 
 还书
 http://localhost:8080/ServerDEMO/ReturnBook
-user_id=10000&session=32a5080a8d73ee40e44462341601bac&book_id=1008
+user_id=10002&session=4e4eacd40cf85530bf782d02b5641da2&book_id=1008&&return_id=10001
+{[recode:B12A0300A0500A1700]};
+
+退出登录
+http://localhost:8080/ServerDEMO/LogOffLet
+user_id=10002&session= 4e4eacd40cf85530bf782d02b5641da2
+{[recode:A0300A0700B03]};

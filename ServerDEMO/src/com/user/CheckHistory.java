@@ -46,7 +46,7 @@ public class CheckHistory extends HttpServlet {
 
         if ("B06".equals(back)) {
             // 检测通过
-            back = service.sessionLogin(user_id, session);
+            back += service.sessionLogin(user_id, session);
             if ("B06A0300".equals(back)) {
                 // 登陆成功
 
@@ -78,7 +78,7 @@ public class CheckHistory extends HttpServlet {
         // TODO return code B06
         System.out.println("B06:"+back);
 
-        out.print("{[recode:"+back+"];"+info+"}");
+        out.print("{[recode:"+back+"]};"+info);
         out.flush();
         out.close();
     }

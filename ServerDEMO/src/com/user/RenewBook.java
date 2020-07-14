@@ -41,12 +41,12 @@ public class RenewBook extends HttpServlet {
         String session = request.getParameter("session");
 
         // 检测是否缺参数和SQL注入
-        back = MissParameter.allNotNullEmpty(user_id, session);
+        back += MissParameter.allNotNullEmpty(user_id, session);
         back += SQLInjection.SQLInjectionTest(user_id, session);
 
         if ("B07".equals(back)) {
             // 不缺参数，开始登录 back = "B07"
-            back = service.sessionLogin(user_id, session);
+            back += service.sessionLogin(user_id, session);
 
             if ("B07A0300".equals(back)) {
                 // 如果登录成功 开始查询 back = "B07A0300"
@@ -75,7 +75,7 @@ public class RenewBook extends HttpServlet {
         // TODO return code B07
         System.out.println("B07:"+back);
 
-        out.print("{[recode:"+back+"]}");
+        out.print("{[recode:"+back+"]};");
         out.flush();
         out.close();
     }

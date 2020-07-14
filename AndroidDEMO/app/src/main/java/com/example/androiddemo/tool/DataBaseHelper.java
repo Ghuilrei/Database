@@ -14,9 +14,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static int version = 1;
 
     private static final String CREATE_TABLE = "create table Session (" +
-            "userid char(10) primary key," +
-            "session text not null," +
-            "ismanager char(5))";
+            "user_id varchar(10) primary key," +
+            "user_name varchar(20) not null," +
+            "session text," +
+            "phone varchar(20)," +
+            "is_manager char(5)," +
+            "is_ban varchar(1))";
 
     public DataBaseHelper(Context context) {
         super(context, name, factory, version);

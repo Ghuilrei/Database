@@ -1,4 +1,4 @@
-package com.example.androiddemo.work;
+package com.example.androiddemo.user;
 
 import android.os.Bundle;
 import android.webkit.WebView;

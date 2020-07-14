@@ -58,16 +58,18 @@ public class ReturnBook extends HttpServlet {
 
                     // 接受参数
                     String book_id = request.getParameter("book_id");
+                    // 接收归还用户ID
+                    String return_id = request.getParameter("return_id");
 
                     // 检测是否缺参数和SQL注入
-                    back += MissParameter.allNotNullEmpty(book_id);
-                    back += SQLInjection.SQLInjectionTest(book_id);
+                    back += MissParameter.allNotNullEmpty(book_id, return_id);
+                    back += SQLInjection.SQLInjectionTest(book_id, return_id);
 
                     if ("B12A0300A0500".equals(back)) {
                         // 参数合法，开始查询 back = "B12A0300A0500"
 
                         // 查询并获取orderBook返回值
-                        back += service.returnBook(book_id, user_id);
+                        back += service.returnBook(book_id, return_id);
                     }
                 }
             }
@@ -81,7 +83,7 @@ public class ReturnBook extends HttpServlet {
         // TODO return code B12
         System.out.println("B12:"+back);
 
-        out.print("{[recode:"+back+"]}");
+        out.print("{[recode:"+back+"]};");
         out.flush();
         out.close();
     }

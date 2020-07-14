@@ -508,7 +508,7 @@ public class Service {
      * @description 书籍续借
      * @param bookId 书ID
      * @param userId 用户ID
-     * @return String[]：每个字符串存一本书的信息
+     * @return String 错误码   A11**
      */
     public String renewBook(String bookId, String userId) {
 
@@ -528,14 +528,14 @@ public class Service {
 
             if (rs.getBoolean("@result")) {
                 sql.closeDataBase();
-                // TODO return code A1101
-                System.out.println("A1101");
-                return "A1101";
-            } else {
-                sql.closeDataBase();
                 // TODO return code A1100
                 System.out.println("A1100");
                 return "A1100";
+            } else {
+                sql.closeDataBase();
+                // TODO return code A1101
+                System.out.println("A1101");
+                return "A1101";
             }
         } catch (SQLException e) {
             e.printStackTrace();

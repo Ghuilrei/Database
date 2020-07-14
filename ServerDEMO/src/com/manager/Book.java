@@ -103,7 +103,7 @@ public class Book extends HttpServlet {
         // TODO return code B10
         System.out.println("B10:"+back);
 
-        out.print("{[recode:"+back+"]}");
+        out.print("{[recode:"+back+"]};");
         out.flush();
         out.close();
     }

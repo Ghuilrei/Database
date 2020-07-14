@@ -55,18 +55,20 @@ public class BorrowBook extends HttpServlet {
 
                 if ("B11A0300A0500".equals(back)) {
 
-                    // 接受参数
+                    // 接受书籍ID
                     String book_id = request.getParameter("book_id");
+                    // 接收借阅用户ID
+                    String borrow_id = request.getParameter("borrow_id");
 
                     // 检测是否缺参数和SQL注入
-                    back += MissParameter.allNotNullEmpty(book_id);
-                    back += SQLInjection.SQLInjectionTest(book_id);
+                    back += MissParameter.allNotNullEmpty(book_id, borrow_id);
+                    back += SQLInjection.SQLInjectionTest(book_id, borrow_id);
 
                     if ("B11A0300A0500".equals(back)) {
                         // 参数合法，开始查询 back = "B11A0300A0500"
 
                         // 查询并获取orderBook返回值
-                        back += service.borrowBook(book_id, user_id);
+                        back += service.borrowBook(book_id, borrow_id);
                     }
                 }
             }
@@ -80,7 +82,7 @@ public class BorrowBook extends HttpServlet {
         // TODO return code B11
         System.out.println("B11:"+back);
 
-        out.print("{[recode:"+back+"]}");
+        out.print("{[recode:"+back+"]};");
         out.flush();
         out.close();
     }

@@ -35,7 +35,7 @@ public class RegLet extends HttpServlet{
 		service = new Service();
 
 		// 返回值
-		String back = "";
+		String back = "B02";
 
 		// 用户ID
 		String phone = request.getParameter("phone");
@@ -48,13 +48,11 @@ public class RegLet extends HttpServlet{
 
 
 
-		back = MissParameter.allNotNullEmpty(phone, userName, password, ismanager);
+		back += MissParameter.allNotNullEmpty(phone, userName, password, ismanager);
 		back += SQLInjection.SQLInjectionTest(phone, userName, password, ismanager);
 
-		if (back.isEmpty()) {
-			back = service.register(phone, userName, password, ismanager) + "B02";
-		} else {
-			back = back + "B02";
+		if ("B02".equals(back)) {
+			back += service.register(phone, userName, password, ismanager);
 		}
 
 		// 返回信息到客户端
@@ -65,7 +63,7 @@ public class RegLet extends HttpServlet{
 		// TODO return code B02
 		System.out.println("B02:"+back);
 
-		out.print("{[recode:"+back+"]}");
+		out.print("{[recode:"+back+"]};");
 		out.flush();
 		out.close();
 	}
