@@ -1,4 +1,4 @@
-package com.example.androiddemo.user;
+package com.example.androiddemo.manager;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,7 +17,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-public class RenewBook extends AppCompatActivity {
+public class DelBook2 extends AppCompatActivity {
 
     // 用户信息类
     Person person;
@@ -68,10 +68,10 @@ public class RenewBook extends AppCompatActivity {
 
                                 data =  "user_id="+ URLEncoder.encode(person.getUser_id(),"UTF-8")+
                                         "&session="+URLEncoder.encode(person.getSession(),"UTF-8")+
-                                        "&book_id="+URLEncoder.encode(bookid,"UTF-8");
+                                        "&operate=down&book_id="+URLEncoder.encode(bookid,"UTF-8");
 
                                 // 新建连接线程
-                                MyThread myThread = new RenewBook.MyThread();
+                                MyThread myThread = new DelBook2.MyThread();
                                 myThread.setBook_id(data);
                                 new Thread(myThread).start();
                             }
@@ -86,7 +86,7 @@ public class RenewBook extends AppCompatActivity {
 
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent(RenewBook.this, History.class);
+                        Intent intent = new Intent(DelBook2.this, DelBook.class);
                         intent.putExtra("Person", person);
                         finish();
                         startActivity(intent);
@@ -110,7 +110,7 @@ public class RenewBook extends AppCompatActivity {
         @Override
         public void run() {
             //获取服务器返回的数据
-            infoString = WebServicePost.executeHttpPost(book_id, "RenewBook");
+            infoString = WebServicePost.executeHttpPost(book_id, "Book");
             //更新UI，使用runOnUiThread()方法
             showResponse(infoString);
         }
@@ -128,12 +128,12 @@ public class RenewBook extends AppCompatActivity {
                     String recode = data.getRecode();
 
                     // 注册成功
-                    if ("B07A0300A1100".equals(recode)) {
-                        Toast.makeText(getApplicationContext(), "续借成功", Toast.LENGTH_SHORT).show();
+                    if ("B10A0300A0500A1500".equals(recode)) {
+                        Toast.makeText(getApplicationContext(), "下架成功", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(getApplicationContext(), "续借失败", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "下架失败", Toast.LENGTH_SHORT).show();
                     }
-                    Intent intent = new Intent(RenewBook.this, History.class);
+                    Intent intent = new Intent(DelBook2.this, DelBook.class);
                     intent.putExtra("Person", person);
                     startActivity(intent);
                     finish();

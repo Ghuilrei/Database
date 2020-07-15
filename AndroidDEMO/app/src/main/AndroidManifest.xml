@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<!--        系统部分-->
         <activity android:name=".operate.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,10 +21,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".operate.Register"></activity>
-        <activity android:name=".operate.Content"></activity>
-<!--        <activity android:name=".work.Information"></activity>-->
-        <activity android:name=".user.History"></activity>
+        <activity android:name=".operate.Register" />
+        <activity android:name=".operate.Content" />
+
+<!--        用户部分-->
+        <activity android:name=".user.Information" />
+        <activity android:name=".user.History" />
+        <activity android:name=".user.CheckBook" />
+        <activity android:name=".user.CheckBookRes"/>
+        <activity android:name=".user.RenewBook"/>
+        <activity android:name=".user.OrderBook"/>
+
+<!--        管理员部分-->
+        <activity android:name=".manager.AddBook"/>
+        <activity android:name=".manager.ReturnBook"/>
+        <activity android:name=".manager.BorrowBook"/>
+        <activity android:name=".manager.DelBook"/>
+        <activity android:name=".manager.DelBook2"/>
     </application>
 
 

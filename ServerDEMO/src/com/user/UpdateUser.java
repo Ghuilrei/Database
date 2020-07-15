@@ -52,7 +52,7 @@ public class UpdateUser extends HttpServlet {
                 // 如果登录成功 开始查询 back = "B0901A0300"
                 String user_name = new String(request.getParameter("user_name").getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
                 String sex = new String(request.getParameter("sex").getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
-                String age = request.getParameter("age");
+                String age = new String(request.getParameter("age").getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
                 String phone = request.getParameter("phone");
 
                 // 参数非法检测

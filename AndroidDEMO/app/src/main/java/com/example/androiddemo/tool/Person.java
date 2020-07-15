@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.se.omapi.Session;
 
 
 import java.io.Serializable;
@@ -85,7 +86,6 @@ public class Person implements Serializable {
         setUser_name(data.get("user_name"));
         setUser_id(data.get("user_id"));
         setSession(data.get("session"));
-        System.out.println("123123123123123123123:"+data.get("session"));
         setPhone(data.get("phone"));
         setIs_manager(data.get("is_manager"));
         setIs_ban(data.get("is_ban"));
@@ -114,6 +114,19 @@ public class Person implements Serializable {
         }
         // TODO Session 插入成功
         System.out.println("Session 插入成功");
+    }
+
+    public void delAll (Context context) {
+
+        DataBaseHelper dbhelper = new DataBaseHelper(context);
+        SQLiteDatabase db = dbhelper.getWritableDatabase();
+        db.delete("Session", "rowid=?", new String[]{"1"});
+        setUser_name("NULL");
+        setUser_id("NULL");
+        setSession("NULL");
+        setPhone("NULL");
+        setIs_manager("NULL");
+        setIs_ban("NULL");
     }
 
     public void setUser_id(String user_id) {

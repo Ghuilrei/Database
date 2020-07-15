@@ -68,12 +68,16 @@ public class CheckBook extends HttpServlet {
                     // 不缺参数，开始查询 back = "B04A0300"
 
                     // 任意查询数据处理
-                    book_id = book_id.isEmpty() ? "-1" : book_id;
+                    book_id = book_id.isEmpty() ? "'-1'" : "'"+book_id+"'";
                     category_name = category_name.isEmpty() ? "-1" : category_name;
                     book_name = book_name.isEmpty() ? "-1" : book_name;
                     author = author.isEmpty() ? "-1" : author;
                     press = press.isEmpty() ? "-1" : press;
                     public_date = public_date.isEmpty() ? "2000-01-01" : public_date;
+
+                    if ("'-1'".equals(book_id) && "-1".equals(category_name) && "-1".equals(book_name) && "-1".equals(author) && "-1".equals(press) && "2000-01-01".equals(public_date)) {
+                        book_id = "book_id";
+                    }
 
                     // 查询结果数组
                     String[] re;

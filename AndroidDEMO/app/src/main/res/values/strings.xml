@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidDEMO</string>
+    <string name="选择分类ID">选择分类ID</string>
 </resources>

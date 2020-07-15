@@ -26,6 +26,7 @@ public class WebServicePost {
         InputStream in = null;
 
         try{
+//            String address = "http://172.16.225.1:8080/ServerDEMO/" + catalogue;
             String address = "http://192.168.0.116:8080/ServerDEMO/" + catalogue;
             try {
                 URL url = new URL(address);

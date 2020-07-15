@@ -44,9 +44,9 @@ public class Service {
 
         // 判断是否为管理员
         if ("true".equals(isManager)) {
-            ret1= sql.executeUpdate(regSql1);
+            ret1= sql.executeUpdate(regSql2);
         } else {
-            ret1 = sql.executeUpdate(regSql2);
+            ret1 = sql.executeUpdate(regSql1);
         }
         if (ret != 0 && ret1 != 0) {
             sql.closeDataBase();
@@ -353,7 +353,7 @@ public class Service {
         String[] back;
 
         // 查询书的信息
-        String chkSql = "SELECT * FROM bookbase WHERE book_id = '"+ book_id +"' OR category_name = '"+ category_name +"' OR book_name = '"+ book_name +"' OR author = '"+ author +"' OR press = '"+ press +"' OR public_date = '"+ public_date +"';";
+        String chkSql = "SELECT * FROM bookbase WHERE book_id = "+ book_id +" OR category_name = '"+ category_name +"' OR book_name = '"+ book_name +"' OR author = '"+ author +"' OR press = '"+ press +"' OR public_date = '"+ public_date +"';";
 
 
         // 获取DB对象
@@ -383,7 +383,7 @@ public class Service {
                             "[book_name:"+ rs.getString("book_name") +"]," +
                             "[author:"+ rs.getString("author") +"]," +
                             "[press:"+ rs.getString("press") +"]," +
-                            "[public_date:"+ rs.getString("public_date")+"]}";
+                            "[remain:"+ rs.getString("remain")+"]}";
                     rs.next();
                 }
                 return back;
@@ -573,7 +573,6 @@ public class Service {
                 back = "{[user_name:"+ rs.getString("user_name") +"]," +
                         "[sex:"+ rs.getString("sex") +"]," +
                         "[age:"+ rs.getString("age") +"]," +
-                        "[phone:"+ rs.getString("phone") +"]," +
                         "[num:"+ rs.getString("num") +"]," +
                         "[is_ban:"+ rs.getString("is_ban") +"]," +
                         "[is_manager:"+ rs.getString("is_manager") +"]," +

@@ -81,7 +81,6 @@ public class Book extends HttpServlet {
                         // 删除书籍操作
                         String book_id = request.getParameter("book_id");
 
-
                         // 检测是否合法
                         back += MissParameter.allNotNullEmpty(book_id);
                         back += SQLInjection.SQLInjectionTest(book_id);

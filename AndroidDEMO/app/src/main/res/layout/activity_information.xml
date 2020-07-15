@@ -34,17 +34,16 @@
                         android:layout_width="100dp"
                         android:layout_height="46dp"
                         android:gravity="center"
-                        android:text="姓名："
+                        android:text="用户ID："
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/eTSno"
+                        android:id="@+id/user_id"
                         android:layout_width="225dp"
                         android:layout_height="60dp"
+                        android:editable="false"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="NULL"
-                        android:editable="false"
                         android:textSize="14sp" />
                 </TableRow>
 
@@ -57,16 +56,15 @@
                         android:layout_width="100dp"
                         android:layout_height="46dp"
                         android:gravity="center"
-                        android:text="学号："
+                        android:text="用户名："
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/eTSname"
+                        android:id="@+id/user_name"
                         android:layout_width="225dp"
                         android:layout_height="60dp"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="NULL"
                         android:textSize="14sp" />
                 </TableRow>
 
@@ -83,12 +81,11 @@
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/eTSsex"
+                        android:id="@+id/sex"
                         android:layout_width="225dp"
                         android:layout_height="60dp"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="NULL"
                         android:textSize="14sp" />
                 </TableRow>
 
@@ -101,16 +98,15 @@
                         android:layout_width="100dp"
                         android:layout_height="46dp"
                         android:gravity="center"
-                        android:text="学院："
+                        android:text="年龄："
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/eTSdept"
+                        android:id="@+id/age"
                         android:layout_width="225dp"
                         android:layout_height="60dp"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="NULL"
                         android:textSize="14sp" />
                 </TableRow>
 
@@ -123,16 +119,15 @@
                         android:layout_width="100dp"
                         android:layout_height="46dp"
                         android:gravity="center"
-                        android:text="年级："
+                        android:text="手机号："
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/eTSgrade"
+                        android:id="@+id/phone"
                         android:layout_width="225dp"
                         android:layout_height="60dp"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="NULL"
                         android:textSize="14sp" />
                 </TableRow>
 
@@ -145,16 +140,15 @@
                         android:layout_width="100dp"
                         android:layout_height="46dp"
                         android:gravity="center"
-                        android:text="专业："
+                        android:text="可借数量："
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/eTSxy"
+                        android:id="@+id/num"
                         android:layout_width="225dp"
                         android:layout_height="60dp"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="NULL"
                         android:textSize="14sp" />
                 </TableRow>
 
@@ -167,16 +161,15 @@
                         android:layout_width="100dp"
                         android:layout_height="46dp"
                         android:gravity="center"
-                        android:text="手机号："
+                        android:text="用户身份："
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/eTSphone"
+                        android:id="@+id/is_manager"
                         android:layout_width="225dp"
                         android:layout_height="60dp"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="NULL"
                         android:textSize="14sp" />
                 </TableRow>
 
@@ -193,12 +186,11 @@
                         android:textSize="18sp" />
 
                     <EditText
-                        android:id="@+id/eTSis_ban"
+                        android:id="@+id/is_ban"
                         android:layout_width="225dp"
                         android:layout_height="60dp"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="NULL"
                         android:textSize="14sp" />
                 </TableRow>
 
@@ -213,7 +205,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="113dp"
                 android:layout_marginRight="113dp"
-                android:text="Button"
+                android:text="保存"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
